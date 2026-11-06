@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding: 35px 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #050b18;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+
+/* loader design */
+
+
+/* Preloader */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background: #050b18;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9;
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.5s ease,
+     visibility 0.5s ease;
+    }
+
+    #preloader.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loader-content {
+      text-align: center;
+      animation: fadeIn 0.6s ease;
+    }
+
+    /* Logo */
+    .loader-logo {
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      margin-bottom: 30px;
+      text-shadow: 0 0 20px #00d5ff30;
+    }
+
+    .loader-logo span {
+      color: #00d5ff;
+    }
+
+    .tagline {
+      color: #8da4bf;
+      font-size: 11px;
+      letter-spacing: 4px;
+      margin-top: -20px;
+      margin-bottom: 30px;
+    }
+
+    /* Spinner */
+    .loader-spinner {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 22px;
+      border: 4px solid #1b2a40;
+      border-top: 4px solid #00d5ff;
+      border-right: 4px solid #00d5ff;
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+      box-shadow: 0 0 18px #00d5ff20;
+    }
+
+    .loading-text {
+      color: #9db3cc;
+      font-size: 13px;
+      letter-spacing: 1px;
+      animation: pulse 1s ease-in-out infinite;
+    }
+
+     /* Animations */
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+
+
+.signup-container {
+    width: 100%;
+    max-width: 460px;
+    padding: 35px;
+    background: linear-gradient(145deg, #101d32, #07111f);
+    border: 1px solid #123b55;
+    border-radius: 18px;
+    box-shadow: 0 0 30px rgba(0, 217, 255, 0.07);
+}
+
+.logo {
+    margin-bottom: 8px;
+    color: #ffffff;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: #00d9ff;
+}
+
+.welcome-text {
+    margin-bottom: 22px;
+    color: #00d9ff;
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 2.5px;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.subtitle {
+    margin-bottom: 28px;
+    color: #a8b5c8;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.input-group {
+    margin-bottom: 18px;
+    position: relative;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 9px;
+    color: #e4edf8;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.input-group input,
+.input-group select {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+
+    color: #ffffff;
+    background: #050b18;
+
+    border: 1px solid #28445b;
+    border-radius: 8px;
+    outline: none;
+
+    font-size: 14px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input::placeholder {
+    color: #6f8097;
+}
+
+.input-group select {
+    cursor: pointer;
+}
+
+.input-group select option {
+    background: #0b1728;
+    color: #ffffff;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #00d9ff;
+    box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.08);
+}
+
+.policy-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 22px 0;
+}
+
+.policy-group input {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px;
+    flex-shrink: 0;
+    accent-color: #00d9ff;
+    cursor: pointer;
+}
+
+.policy-group label {
+    color: #a8b5c8;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+a {
+    color: #00d9ff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.signup-btn {
+    width: 100%;
+    padding: 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #00d9ff;
+    color: #03111b;
+
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.signup-btn:hover {
+    background: #00b8dc;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 18px rgba(0, 217, 255, 0.15);
+}
+
+.signup-btn:focus-visible,
+a:focus-visible {
+    outline: 2px solid #ffffff;
+    outline-offset: 3px;
+}
+
+#formMessage {
+    margin: 0 0 15px;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+#formMessage.error {
+    color: #ff7777;
+}
+
+#formMessage.success {
+    color: #00d9a0;
+}
+
+.login-text {
+    margin-top: 24px;
+    text-align: center;
+    color: #a8b5c8;
+    font-size: 13px;
+}
+
+.footer-text {
+    margin-top: 28px;
+    text-align: center;
+    color: #65758b;
+    font-size: 11px;
+}
+
+/* Mobile screens */
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px 12px;
+        align-items: flex-start;
+    }
+
+    .signup-container {
+        padding: 25px 20px;
+        border-radius: 14px;
+    }
+
+    h1 {
+        font-size: 25px;
+    }
+}
+
+/* PASSWORD SHOW/HIDE TOGGLE */
+
+.password-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 48px;
+    box-sizing: border-box;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 30px;
+
+    padding: 0;
+    border: none;
+    background: transparent;
+
+    color: #8da5bb;
+    cursor: pointer;
+}
+
+.password-toggle:hover {
+    color: #00d9ff;
+}
+
+.password-toggle svg {
+    width: 21px;
+    height: 21px;
+}
+
+.password-toggle .eye-closed {
+    display: none;
+}
+
+.password-toggle.showing .eye-open {
+    display: none;
+}
+
+.password-toggle.showing .eye-closed {
+    display: block;
+}
+
+

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>coNNex | Create Account</title>
+
+    <link rel="stylesheet" href="signup.css">
+    <script src="signup.js" defer></script>
+</head>
+<body>
+
+
+    <div id="preloader">
+    <div class="loader-content">
+
+      <div class="loader-logo">
+        co<span>NN</span>ex
+      </div>
+
+      <div class="tagline">
+        CONNECT. INVEST. GROW.
+      </div>
+
+      <div class="loader-spinner"></div>
+
+      <p class="loading-text">
+        loading your experience...
+      </p>
+
+    </div>
+  </div>
+
+    <div class="signup-container">
+
+        <div class="logo">co<span>NN</span>ex</div>
+
+        <p class="welcome-text">CONNECT. INVEST. GROW.</p>
+
+        <h1>Log in</h1>
+
+        <p class="subtitle">
+           good to have you back !!
+        </p>
+
+        <form id="signupForm">
+
+            <!-- <div class="input-group">
+                <label for="fullname">Full Name</label>
+                <input
+                    type="text"
+                    id="fullname"
+                    name="fullname"
+                    placeholder="Enter your full name"
+                    autocomplete="name"
+                    required
+                >
+            </div> -->
+
+            <!-- <div class="input-group">
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Choose a username"
+                    autocomplete="username"
+                    minlength="3"
+                    required
+                >
+            </div> -->
+
+            <div class="input-group">
+                <label for="email">UserName or Email</label>
+                <input
+                    type="text"
+                    id="email"
+                    name="UserName or Email"
+                    placeholder="Enter your username or email "
+                    required
+                >
+            </div>
+
+             <!-- PASSWORD FIELD -->
+<label for="password">Password</label>
+
+<div class="input-group" id="password-wrapper">
+    <input
+        type="password"
+        id="password"
+        name="password"
+        placeholder="Enter your password"
+        required
+    >
+
+    <button
+        type="button"
+        class="password-toggle"
+        data-target="password"
+        aria-label="Show password"
+        aria-pressed="false"
+    >
+        <svg class="eye-open" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round">
+            <path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7-10-7-10-7z"/>
+            <circle cx="12" cy="12" r="3"/>
+        </svg>
+
+        <svg class="eye-closed" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor"
+             stroke-width="2" stroke-linecap="round"
+             stroke-linejoin="round">
+            <path d="M3 3l18 18"/>
+            <path d="M10.6 10.6a2 2 0 0 0 2.8 2.8"/>
+            <path d="M9.9 5.2A10.8 10.8 0 0 1 12 5c6.4 0 10 7 10 7a15 15 0 0 1-3 3.8"/>
+            <path d="M6.2 6.2C3.5 8 2 12 2 12s3.6 7 10 7c1.2 0 2.3-.2 3.3-.6"/>
+        </svg>
+    </button>
+</div>
+
+            <!-- <div class="input-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="confirm your password"
+                    autocomplete="new-password"
+                    required
+                >
+            </div> -->
+<!-- 
+            <div class="input-group">
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="" disabled selected>
+                        Select your gender
+                    </option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div> -->
+
+            <!-- <div class="policy-group">
+                <input
+                    type="checkbox"
+                    id="privacyPolicy"
+                    name="privacyPolicy"
+                    required
+                >
+
+                <label for="privacyPolicy">
+                    I agree to the
+                    <a href="policy.html" target="_blank"
+                       rel="noopener noreferrer">Privacy Policy</a>
+                    and understand how my information is used.
+                </label>
+            </div> -->
+
+            <p id="formMessage" aria-live="polite"></p>
+
+            <button type="submit" class="signup-btn">
+                Log in
+            </button>
+
+        </form>
+
+        <p class="login-text">
+            don't have an account?
+            <a href="signup.html">sign up</a>
+        </p>
+
+        <p class="footer-text">
+            &copy; 2026 coNNex. All rights reserved.
+        </p>
+
+    </div>
+
+</body>
+</html>
