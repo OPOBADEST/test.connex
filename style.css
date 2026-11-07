@@ -949,7 +949,7 @@ input, select {
 }
 
 .sponsor_con img{
-    width: 50px;
+    width: 100px;
 }
 
 
@@ -1768,6 +1768,12 @@ footer{
         width: 80%;
         height: 100vh;
         object-fit: cover;
+    }
+
+    marquee[behavior="scroll"] {
+        width: 100%;
+        height: 30px;
+        overflow: hidden;
     }
 
     .whatsapp-panel{
