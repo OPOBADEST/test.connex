@@ -982,7 +982,7 @@ footer{
   color: #006EFC
 }
 
-.connex_footer_con p{
+.connex_footer_con p,.quick_link_con p{
     color: #8DA4C5;
     font-family: sans-serif;
     font-size: 15px;
