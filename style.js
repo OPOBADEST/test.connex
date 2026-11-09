@@ -42,13 +42,6 @@ window.addEventListener("load", function () {
     }
 
 
-     function myfunction3(){
-        document.getElementById("bars").style.display="block";
-        document.getElementById('times').style.
-        display='none';
-        document.getElementById('header2').style.display='none';
-    }
-
 
     function autoCalculate() {
         const rate = Number(plan.value);
