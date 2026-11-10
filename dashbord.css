@@ -1,0 +1,749 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080f1e;
+    color: #ffffff;
+}
+
+/* Sidebar */
+
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background: #0d1729;
+    border-right: 1px solid #1b2b42;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 30px 18px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    overflow-y: scroll;
+}
+
+.logo {
+    font-size: 29px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 45px;
+    padding-left: 12px;
+}
+
+.logo span {
+    color: #00d4ff;
+    text-shadow:  #67E0FD  2px 2px;}
+
+.menu-title {
+    font-size: 11px;
+    color: #718096;
+    letter-spacing: 2px;
+    margin: 0 0 15px 12px;
+}
+
+.navigation {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 13px 15px;
+    color: #a8b4c7;
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.nav-icon {
+    font-size: 20px;
+    width: 22px;
+    text-align: center;
+}
+
+.nav-link:hover {
+    background: #142b40;
+    color: #00d4ff;
+}
+
+/* Active link */
+
+.nav-link.active {
+    background: rgba(0, 212, 255, 0.12);
+    color: #00d4ff;
+    border-left: 3px solid #00d4ff;
+    font-weight: bold;
+}
+
+/* Logout */
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+.logout:hover {
+    background: rgba(255, 65, 65, 0.12);
+    color: #ff5555;
+}
+
+/* Main content */
+
+.main-content {
+    margin-left: 250px;
+    padding: 35px;
+}
+
+/* Header */
+
+.top-header {
+    padding-bottom: 25px;
+    border-bottom: 1px solid #1b2b42;
+    margin-bottom: 30px;
+}
+
+.top-header h2 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.top-header p {
+    color: #8998ad;
+    font-size: 14px;
+}
+
+/* Page sections */
+
+.content-section {
+    display: none;
+    background: #0d1729;
+    padding: 30px;
+    border-radius: 12px;
+    border: 1px solid #1b2b42;
+    min-height: 180px;
+}
+
+.content-section.active-section {
+    display: block;
+}
+
+.content-section h1 {
+    font-size: 22px;
+    margin-bottom: 12px;
+}
+
+.content-section p {
+    color: #a8b4c7;
+    line-height: 1.6;
+}
+
+.balances_main_con{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.balances_main_con2{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+
+.balance{
+    width: 200px;
+    border-style: dotted;
+    border-width: 1px;
+    border-color: #00d4ff;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: #03111b;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.70);
+    
+}
+
+.balance p{
+    font-size: 15px;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+
+.balance h2{
+    font-size: 20px;
+}
+
+/* Mobile button */
+
+.menu-toggle {
+    display: none;
+    background: #00d4ff;
+    color: #080f1e;
+    border: none;
+    padding: 9px 13px;
+    font-size: 22px;
+    border-radius: 6px;
+    cursor: pointer;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    .sidebar.active {
+        transform: translateX(0);
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 80px 20px 25px;
+    }
+
+    .banlance{
+        width: 500px;
+        margin:auto;
+    }
+
+    .balances_main_con, .balances_main_con2 {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+        
+    }
+
+}
+
+.profile_con{
+    width: 60px;
+    height: 60px;
+    float: right;
+    position: relative;
+
+}
+
+.profile_con input{
+    position: absolute;
+    width: 50px;
+    height: 5px;
+    margin-right: 30px;
+    margin-top: 18px;
+    top: 0;
+    opacity: 0;
+}
+
+.profile_con span{
+    font-size: 25px;
+    font-weight: bold;
+    position: relative;
+    /* color: #8998ad; */
+    color: #ffffff;
+    margin-top: 40px;
+    margin-right: 40px;
+    
+}
+
+
+.profile_con img{
+    border-radius: 40%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+}
+
+
+
+
+
+
+
+
+
+/* ACTIVE INVESTMENTS */
+
+.active-investments {
+    width: 100%;
+    margin-top: 30px;
+    padding: 25px;
+    background: #0e1729;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+    color: #ffffff;
+}
+
+.active-investments-header {
+    margin-bottom: 25px;
+}
+
+.active-investments-header h2 {
+    font-size: 21px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.active-investments-header p {
+    font-size: 13px;
+    color: #8995aa;
+}
+
+.investment-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.investment-table {
+    width: 100%;
+    min-width: 900px;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.investment-table th {
+    padding: 18px 15px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #aab6c9;
+    white-space: nowrap;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.investment-table td {
+    padding: 22px 15px;
+    font-size: 13px;
+    color: #e1e8f2;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    white-space: nowrap;
+}
+
+.investment-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.investment-plan {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.investment-amount {
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.investment-status {
+    font-weight: 600;
+    color: #31c8e8;
+}
+
+.investment-status.completed {
+    color: #4ade80;
+}
+
+/* COUNTDOWN AND PROGRESS */
+
+.investment-progress {
+    min-width: 220px;
+}
+
+.investment-countdown {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.investment-progress-track {
+    width: 100%;
+    height: 7px;
+    background: #263247;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.investment-progress-fill {
+    width: 0%;
+    height: 100%;
+    background: #24c3e5;
+    border-radius: 20px;
+    transition: width 0.8s ease;
+}
+
+.investment-progress-label {
+    font-size: 12px;
+    color: #aab6c9;
+    margin-top: 8px;
+}
+
+/* MOBILE RESPONSIVENESS */
+
+@media (max-width: 768px) {
+
+    .active-investments {
+        padding: 18px;
+        margin-top: 20px;
+    }
+
+    .active-investments-header h2 {
+        font-size: 18px;
+    }
+
+    .investment-table {
+        min-width: 850px;
+    }
+
+    .investment-table th,
+    .investment-table td {
+        padding: 16px 12px;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+/* =====================================
+   ACCOUNT OVERVIEW
+===================================== */
+
+.account-overview {
+    width: 100%;
+    padding: 25px;
+    box-sizing: border-box;
+    margin-top: 30px;
+    background: #0d1729;
+
+    border: 1px solid #1b2b42;
+    border-radius: 15px;
+
+    overflow: hidden;
+}
+
+/* HEADER */
+
+.overview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.overview-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.overview-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: #00d4ff;
+    font-size: 22px;
+}
+
+.overview-title h3 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 600;
+
+    margin: 0 0 5px;
+}
+
+.overview-title p {
+    color: #a8b4c7;
+    font-size: 13px;
+
+    margin: 0;
+}
+
+/* FILTER */
+
+.overview-filter {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 10px 14px;
+
+    background: #14243a;
+    border: 1px solid #1b2b42;
+    border-radius: 8px;
+
+    color: #00d4ff;
+    font-size: 13px;
+    font-weight: 500;
+
+    white-space: nowrap;
+}
+
+/* EARNINGS */
+
+.overview-earnings {
+    margin-bottom: 22px;
+}
+
+.overview-earnings span {
+    display: block;
+
+    color: #a8b4c7;
+    font-size: 11px;
+    letter-spacing: 0.8px;
+
+    margin-bottom: 8px;
+}
+
+.overview-earnings h2 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 700;
+
+    margin: 0 0 6px;
+}
+
+.overview-earnings p {
+    color: #00d4ff;
+    font-size: 12px;
+
+    margin: 0;
+}
+
+/* CHART */
+
+.overview-chart {
+    display: flex;
+    gap: 12px;
+
+    width: 100%;
+    height: 250px;
+}
+
+.chart-y-axis {
+    width: 42px;
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding-bottom: 27px;
+    box-sizing: border-box;
+}
+
+.chart-y-axis span {
+    color: #91a3ba;
+    font-size: 11px;
+    text-align: right;
+}
+
+.chart-content {
+    flex: 1;
+    min-width: 0;
+
+    display: flex;
+    flex-direction: column;
+}
+
+#overviewGraph {
+    width: 100%;
+    height: 215px;
+
+    overflow: visible;
+}
+
+#overviewGrid line {
+    stroke: #1b2b42;
+    stroke-width: 1;
+}
+
+#overviewLine {
+    filter: drop-shadow(
+        0 0 5px rgba(0, 212, 255, 0.2)
+    );
+}
+
+#overviewPoints circle {
+    fill: #00d4ff;
+    stroke: #0d1729;
+    stroke-width: 3;
+}
+
+/* DATE LABELS */
+
+.chart-dates {
+    display: flex;
+    justify-content: space-between;
+    gap: 5px;
+
+    margin-top: 10px;
+}
+
+.chart-dates span {
+    color: #91a3ba;
+    font-size: 10px;
+    white-space: nowrap;
+}
+
+/* FOOTER */
+
+.overview-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 22px;
+    padding-top: 15px;
+
+    border-top: 1px solid #1b2b42;
+}
+
+.overview-footer > span,
+.overview-legend span:last-child {
+    color: #a8b4c7;
+    font-size: 11px;
+}
+
+.overview-legend {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.legend-dot {
+    width: 8px;
+    height: 8px;
+
+    background: #00d4ff;
+    border-radius: 50%;
+}
+
+/* =====================================
+   RESPONSIVE DESIGN
+===================================== */
+
+@media (max-width: 768px) {
+
+    .account-overview {
+        padding: 20px;
+    }
+
+    .overview-chart {
+        height: 225px;
+    }
+
+    #overviewGraph {
+        height: 190px;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .account-overview {
+        padding: 15px;
+        border-radius: 12px;
+    }
+
+    .overview-header {
+        gap: 8px;
+        margin-bottom: 25px;
+    }
+
+    .overview-title {
+        gap: 6px;
+    }
+
+    .overview-icon {
+        width: 32px;
+        font-size: 18px;
+    }
+
+    .overview-title h3 {
+        font-size: 14px;
+    }
+
+    .overview-title p {
+        font-size: 10px;
+    }
+
+    .overview-filter {
+        padding: 8px 9px;
+        gap: 7px;
+        font-size: 10px;
+    }
+
+    .overview-earnings h2 {
+        font-size: 24px;
+    }
+
+    .overview-chart {
+        height: 205px;
+        gap: 7px;
+    }
+
+    .chart-y-axis {
+        width: 35px;
+    }
+
+    .chart-y-axis span {
+        font-size: 9px;
+    }
+
+    #overviewGraph {
+        height: 170px;
+    }
+
+    .chart-dates span {
+        font-size: 8px;
+    }
+
+}
+
+@media (max-width: 360px) {
+
+    .account-overview {
+        padding: 12px;
+    }
+
+    .overview-title h3 {
+        font-size: 13px;
+    }
+
+    .overview-title p {
+        font-size: 9px;
+    }
+
+    .overview-filter {
+        padding: 7px;
+        font-size: 9px;
+    }
+
+}

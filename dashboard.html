@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coNNex Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="dashbord.css">
+</head>
+<body>
+
+    <button class="menu-toggle" id="menuToggle">☰</button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="logo">
+            co<span>NN</span>ex
+        </div>
+
+        <p class="menu-title">MAIN MENU</p>
+
+        <nav class="navigation">
+
+            <a href="#dashboard" class="nav-link active">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="#invest" class="nav-link">
+                <span class="nav-icon">↗</span>
+                <span>Invest</span>
+            </a>
+
+            <a href="#deposit" class="nav-link">
+                <span class="nav-icon">＋</span>
+                <span>Deposit</span>
+            </a>
+
+            <a href="#withdraw" class="nav-link">
+                <span class="nav-icon">↙</span>
+                <span>Withdraw</span>
+            </a>
+
+            <a href="#transactions" class="nav-link">
+                <span class="nav-icon">⇄</span>
+                <span>Transactions</span>
+            </a>
+
+            <a href="#referrals" class="nav-link">
+                <span class="nav-icon">♧</span>
+                <span>Referrals</span>
+            </a>
+
+            <a href="#kyc" class="nav-link">
+                <span class="nav-icon">✓</span>
+                <span>KYC Verification</span>
+            </a>
+
+            <a href="#settings" class="nav-link">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="#logout" class="nav-link logout">
+                <span class="nav-icon">⇥</span>
+                <span>Logout</span>
+            </a>
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <div class="profile_con">
+            <img src="../CONNEX INVEST/connnex image/WhatsApp Image 2026-11-09 at 10.12.02 PM.jpeg" alt="">
+             <span class="fas fa-camera" id="fa-camere"></span>
+            <input type="file">
+            
+        </div>
+
+        <!-- Dynamic Page Header -->
+        <header class="top-header">
+            <h2 id="pageTitle">Dashboard </h2>
+            <p id="pageSubtitle">Welcome to coNNex. Manage your investments with .</p>
+        </header>
+
+
+
+        <!-- Dashboard -->
+        <section id="dashboard" class="content-section active-section">
+            <div class="balances_main_con">
+                <div class="balance">
+                    <p>Total Balance</p>
+                    <h2>$25,000.00</h2>
+                </div>
+
+                <div class="balance">
+                    <p>Total Invest</p>
+                    <h2>$25,000.00</h2>
+                </div>
+
+                <div class="balance">
+                    <p>Total Deposit</p>
+                    <h2>$25,000.00</h2>
+                </div>
+
+                <div class="balance">
+                    <p>Total withdraw</p>
+                    <h2>$253,233,000.00</h2>
+                </div>
+
+            </div>
+
+
+            <div class="balances_main_con2">
+                <div class="balance">
+                    <p>Total Profit</p>
+                    <h2>$25,000.00</h2>
+                </div>
+
+                <div class="balance">
+                    <p>Total Earn</p>
+                    <h2>$25,000.00</h2>
+                </div>
+
+                <div class="balance">
+                    <p>Referral Bonus</p>
+                    <h2>$25,000.00</h2>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- ACTIVE INVESTMENTS -->
+<section class="active-investments">
+
+    <div class="active-investments-header">
+        <h2>Active Investments</h2>
+        <p>Monitor your investment plans and countdowns.</p>
+    </div>
+
+    <div class="investment-table-wrapper">
+
+        <table class="investment-table">
+
+            <thead>
+                <tr>
+                    <th>Plan</th>
+                    <th>Amount</th>
+                    <th>Started</th>
+                    <th>Ends</th>
+                    <th>Status</th>
+                    <th>Countdown / Progress</th>
+                </tr>
+            </thead>
+
+            <tbody id="activeInvestmentRows">
+                <!-- Investment records will appear here -->
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+
+
+         
+
+        <!-- ACCOUNT OVERVIEW -->
+
+<section class="account-overview">
+
+    <!-- HEADER -->
+    <div class="overview-header">
+
+        <div class="overview-title">
+
+            <div class="overview-icon">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+            </div>
+
+            <div>
+                <h3>Account Overview</h3>
+                <p>Your earnings at a glance</p>
+            </div>
+
+        </div>
+
+        <!-- VISUAL FILTER ONLY -->
+        <div class="overview-filter">
+            <span>7 Days</span>
+            <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
+    </div>
+
+    <!-- EARNINGS -->
+    <div class="overview-earnings">
+
+        <span>TOTAL EARNINGS</span>
+
+        <h2>$2,450.00</h2>
+
+        <p>Earnings overview</p>
+
+    </div>
+
+    <!-- CHART -->
+    <div class="overview-chart">
+
+        <div class="chart-y-axis">
+            <span>$800K</span>
+            <span>$400K</span>
+            <span>$0</span>
+        </div>
+
+        <div class="chart-content">
+
+            <svg id="overviewGraph"
+                 viewBox="0 0 760 250"
+                 preserveAspectRatio="none">
+
+                <defs>
+                    <linearGradient id="overviewGradient"
+                                    x1="0" y1="0"
+                                    x2="0" y2="1">
+
+                        <stop offset="0%"
+                              stop-color="#00d4ff"
+                              stop-opacity="0.25"/>
+
+                        <stop offset="100%"
+                              stop-color="#00d4ff"
+                              stop-opacity="0"/>
+
+                    </linearGradient>
+                </defs>
+
+                <g id="overviewGrid"></g>
+
+                <path id="overviewArea"
+                      fill="url(#overviewGradient)">
+                </path>
+
+                <path id="overviewLine"
+                      fill="none"
+                      stroke="#00d4ff"
+                      stroke-width="3"
+                      stroke-linecap="round"
+                      stroke-linejoin="round">
+                </path>
+
+                <g id="overviewPoints"></g>
+
+            </svg>
+
+            <div class="chart-dates">
+                <span>Oct 3</span>
+                <span>Oct 4</span>
+                <span>Oct 5</span>
+                <span>Oct 6</span>
+                <span>Oct 7</span>
+                <span>Oct 8</span>
+                <span>Oct 9</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="overview-footer">
+
+        <div class="overview-legend">
+            <span class="legend-dot"></span>
+            <span>Earnings</span>
+        </div>
+
+        <span>Last 7 Days</span>
+
+    </div>
+
+</section>
+
+<!-- END ACCOUNT OVERVIEW -->
+
+
+
+
+
+ </section>
+
+    </main>
+
+    <script src="dashbord.js"></script>
+
+</body>
+</html>
