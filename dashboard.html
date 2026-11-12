@@ -422,6 +422,124 @@
 
 
 
+    <!-- Activate Investment Section -->
+
+<div class="activate-investment">
+
+    <div class="activate-header">
+        <h2>Activate Investment</h2>
+        <p>Select your preferred investment plan and enter your investment amount.</p>
+    </div>
+
+    <!-- Select Investment Plan -->
+
+    <div class="invest-form-group">
+
+        <label for="investmentPlan">Select Investment Plan</label>
+
+        <select id="investmentPlan">
+            <option value="basic">Basic Plan - Minimum $100</option>
+            <option value="standard">Standard Plan - Minimum $500</option>
+            <option value="premium">Premium Plan - Minimum $3,000</option>
+            <option value="longterm">Long-term Plan - Minimum $10,000</option>
+        </select>
+
+    </div>
+
+    <!-- Investment Amount -->
+
+    <div class="invest-form-group">
+
+        <label for="investmentAmount">Investment Amount (USD)</label>
+
+        <div class="amount-input">
+            <span>$</span>
+
+            <input
+                type="number"
+                id="investmentAmount"
+                placeholder="Enter investment amount"
+                min="100"
+                step="any"
+            >
+        </div>
+
+        <small id="minimumMessage">
+            Minimum investment amount: $100
+        </small>
+
+    </div>
+
+    <!-- Activate Button -->
+
+    <button
+        type="button"
+        id="activateButton"
+        disabled
+    >
+        Activate Investment
+    </button>
+
+    <p id="investmentMessage"></p>
+
+</div>
+
+
+<!-- Investment Confirmation Modal -->
+
+<div class="investment-modal" id="investmentModal">
+
+    <div class="investment-modal-content">
+
+        <div class="modal-icon">!</div>
+
+        <h3>Confirm Your Investment</h3>
+
+        <p class="modal-description">
+            Please review your investment details before proceeding.
+        </p>
+
+        <div class="confirmation-details">
+
+            <div>
+                <span>Investment Plan</span>
+                <strong id="confirmPlan">Basic Plan</strong>
+            </div>
+
+            <div>
+                <span>Investment Amount</span>
+                <strong id="confirmAmount">$100</strong>
+            </div>
+
+            <div>
+                <span>Minimum Amount</span>
+                <strong id="confirmMinimum">$100</strong>
+            </div>
+
+        </div>
+
+        <p class="confirm-question">
+            Are you sure you want to proceed with this investment?
+        </p>
+
+        <div class="modal-buttons">
+
+            <button type="button" id="cancelInvestment">
+                Cancel
+            </button>
+
+            <button type="button" id="confirmInvestment">
+                Confirm Investment
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
     
  </section>
 

@@ -655,6 +655,208 @@ copyButton.addEventListener("click", async function () {
 
 
 
+// Investment plan minimum amounts
+
+const investmentPlans = {
+
+    basic: {
+        name: "Basic Plan",
+        minimum: 100
+    },
+
+    standard: {
+        name: "Standard Plan",
+        minimum: 500
+    },
+
+    premium: {
+        name: "Premium Plan",
+        minimum: 3000
+    },
+
+    longterm: {
+        name: "Long-term Plan",
+        minimum: 10000
+    }
+
+};
+
+
+// Get HTML elements
+
+const investmentPlan = document.getElementById("investmentPlan");
+
+const investmentAmount = document.getElementById("investmentAmount");
+
+const minimumMessage = document.getElementById("minimumMessage");
+
+const activateButton = document.getElementById("activateButton");
+
+const investmentMessage = document.getElementById("investmentMessage");
+
+const investmentModal = document.getElementById("investmentModal");
+
+const confirmPlan = document.getElementById("confirmPlan");
+
+const confirmAmount = document.getElementById("confirmAmount");
+
+const confirmMinimum = document.getElementById("confirmMinimum");
+
+const cancelInvestment = document.getElementById("cancelInvestment");
+
+const confirmInvestment = document.getElementById("confirmInvestment");
+
+
+// Get selected plan
+
+function getSelectedPlan() {
+
+    return investmentPlans[investmentPlan.value];
+
+}
+
+
+// Check investment amount
+
+function checkInvestmentAmount() {
+
+    const selectedPlan = getSelectedPlan();
+
+    const amount = Number(investmentAmount.value);
+
+    const minimum = selectedPlan.minimum;
+
+    // Update minimum amount message
+
+    minimumMessage.textContent =
+        `Minimum investment amount: $${minimum.toLocaleString("en-US")}`;
+
+    // Update input minimum
+
+    investmentAmount.min = minimum;
+
+    // Check whether amount is valid
+
+    const validAmount =
+        investmentAmount.value.trim() !== "" &&
+        Number.isFinite(amount) &&
+        amount >= minimum;
+
+    // Enable or disable button
+
+    activateButton.disabled = !validAmount;
+
+    // Display helpful message
+
+    if (investmentAmount.value.trim() === "") {
+
+        investmentMessage.textContent =
+            `Enter at least $${minimum.toLocaleString("en-US")} to continue.`;
+
+    } else if (!validAmount) {
+
+        investmentMessage.textContent =
+            `Your selected plan requires a minimum investment of $${minimum.toLocaleString("en-US")}.`;
+
+    } else {
+
+        investmentMessage.textContent = "";
+
+    }
+
+}
+
+
+// Listen for plan changes
+
+investmentPlan.addEventListener("change", function () {
+
+    checkInvestmentAmount();
+
+});
+
+
+// Listen for amount typing
+
+investmentAmount.addEventListener("input", function () {
+
+    checkInvestmentAmount();
+
+});
+
+
+// Open confirmation modal
+
+activateButton.addEventListener("click", function () {
+
+    const selectedPlan = getSelectedPlan();
+
+    const amount = Number(investmentAmount.value);
+
+    // Double-check the minimum amount
+
+    if (!Number.isFinite(amount) ||
+        amount < selectedPlan.minimum ||
+        investmentAmount.value.trim() === "") {
+
+        checkInvestmentAmount();
+
+        return;
+
+    }
+
+    // Display investment information
+
+    confirmPlan.textContent = selectedPlan.name;
+
+    confirmAmount.textContent =
+        "$" + amount.toLocaleString("en-US");
+
+    confirmMinimum.textContent =
+        "$" + selectedPlan.minimum.toLocaleString("en-US");
+
+    // Show modal
+
+    investmentModal.classList.add("show");
+
+});
+
+
+// Cancel investment
+
+cancelInvestment.addEventListener("click", function () {
+
+    investmentModal.classList.remove("show");
+
+});
+
+
+// Confirm investment
+
+confirmInvestment.addEventListener("click", function () {
+
+    // Close modal
+
+    investmentModal.classList.remove("show");
+
+    // Display frontend demo message
+
+    // investmentMessage.textContent =
+    //     "Your investment details are ready for submission. Connect the PHP backend to process your request.";
+
+    // investmentMessage.style.color = "#2ecc91";
+
+});
+
+
+// Initial validation
+
+checkInvestmentAmount();
+
+
+
+
+
 
 
 

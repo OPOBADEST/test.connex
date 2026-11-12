@@ -888,6 +888,296 @@ body {
 
 
 
+/* Activate Investment */
+
+.activate-investment {
+    width: 100%;
+    max-width: 750px;
+    margin: 25px auto;
+    padding: 25px;
+    background: #0d1729;
+    border: 1px solid #1b2b42;
+    border-radius: 12px;
+}
+
+.activate-header {
+    margin-bottom: 25px;
+}
+
+.activate-header h2 {
+    font-size: 22px;
+    color: #ffffff;
+    margin-bottom: 8px;
+}
+
+.activate-header p {
+    color: #91a2b9;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Form Groups */
+
+.invest-form-group {
+    margin-bottom: 22px;
+}
+
+.invest-form-group label {
+    display: block;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.invest-form-group select,
+.amount-input {
+    width: 100%;
+    height: 48px;
+    background: #101e33;
+    border: 1px solid #243751;
+    border-radius: 7px;
+    color: #ffffff;
+    outline: none;
+    transition: 0.3s;
+}
+
+.invest-form-group select {
+    padding: 0 13px;
+    cursor: pointer;
+}
+
+.invest-form-group select:focus,
+.amount-input:focus-within {
+    border-color: #1688f8;
+}
+
+/* Amount Input */
+
+.amount-input {
+    display: flex;
+    align-items: center;
+    padding: 0 13px;
+    gap: 10px;
+}
+
+.amount-input span {
+    color: #1688f8;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.amount-input input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+.amount-input input::placeholder {
+    color: #70839b;
+}
+
+.invest-form-group small {
+    display: block;
+    color: #91a2b9;
+    font-size: 11px;
+    margin-top: 9px;
+}
+
+/* Activate Button */
+
+#activateButton {
+    width: 100%;
+    height: 48px;
+    border: none;
+    border-radius: 7px;
+    background: #1688f8;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#activateButton:hover:not(:disabled) {
+    background: #0872d9;
+}
+
+#activateButton:disabled {
+    background: #26374c;
+    color: #718198;
+    cursor: not-allowed;
+}
+
+#investmentMessage {
+    font-size: 12px;
+    margin-top: 12px;
+    color: #ffb52e;
+    line-height: 1.5;
+}
+
+/* Confirmation Modal */
+
+.investment-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.75);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.investment-modal.show {
+    display: flex;
+}
+
+.investment-modal-content {
+    width: 100%;
+    max-width: 420px;
+    background: #0d1729;
+    border: 1px solid #243751;
+    border-radius: 12px;
+    padding: 25px;
+    animation: modalAppear 0.25s ease;
+}
+
+@keyframes modalAppear {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #172e49;
+    color: #1688f8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.investment-modal-content h3 {
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.modal-description {
+    color: #91a2b9;
+    font-size: 12px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.confirmation-details {
+    background: #101e33;
+    border: 1px solid #243751;
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.confirmation-details div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid #243751;
+}
+
+.confirmation-details div:last-child {
+    border-bottom: none;
+}
+
+.confirmation-details span {
+    color: #91a2b9;
+    font-size: 12px;
+}
+
+.confirmation-details strong {
+    color: #ffffff;
+    font-size: 12px;
+    text-align: right;
+}
+
+.confirm-question {
+    color: #c4cddd;
+    font-size: 12px;
+    line-height: 1.6;
+    margin: 18px 0;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 13px 8px;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#cancelInvestment {
+    background: #26374c;
+    color: #ffffff;
+}
+
+#confirmInvestment {
+    background: #1688f8;
+    color: #ffffff;
+}
+
+#confirmInvestment:hover {
+    background: #0872d9;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 500px) {
+
+    .activate-investment {
+        padding: 18px;
+    }
+
+    .activate-header h2 {
+        font-size: 19px;
+    }
+
+    .investment-modal-content {
+        padding: 20px;
+    }
+
+    .modal-buttons button {
+        font-size: 11px;
+    }
+
+}
+
+
+
 
 
 
@@ -1307,8 +1597,39 @@ body {
 }
 
 
+@media screen and (max-width: 768px) {
+    .investment_plan_con, .investment_plan_con2 {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .plan-label {
+        font-size: 12px;
+    }
+
+    .investment-card {
+        width: 90%;
+        height: auto;
+        margin-top: 30px;
+    }
+
+    .return-box {
+        width: 100%;
+        margin-top: 5px;
+    }
 
 
+
+
+
+}
+
+
+
+/* deposit */
 
 .deposit-container {
     width: 100%;
