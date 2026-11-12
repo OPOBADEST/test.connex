@@ -661,22 +661,26 @@ const investmentPlans = {
 
     basic: {
         name: "Basic Plan",
-        minimum: 100
+        minimum: 100,
+        rate: 9
     },
 
     standard: {
         name: "Standard Plan",
-        minimum: 500
+        minimum: 500,
+        rate: 13
     },
 
     premium: {
         name: "Premium Plan",
-        minimum: 3000
+        minimum: 3000,
+        rate: 18
     },
 
     longterm: {
         name: "Long-term Plan",
-        minimum: 10000
+        minimum: 10000,
+        rate: 21
     }
 
 };
@@ -700,7 +704,12 @@ const confirmPlan = document.getElementById("confirmPlan");
 
 const confirmAmount = document.getElementById("confirmAmount");
 
-const confirmMinimum = document.getElementById("confirmMinimum");
+// const confirmMinimum = document.getElementById("confirmMinimum");
+const confirmRate = document.getElementById("confirmRate");
+
+const confirmProfit = document.getElementById("confirmProfit");
+
+const confirmTotal = document.getElementById("confirmTotal");
 
 const cancelInvestment = document.getElementById("cancelInvestment");
 
@@ -787,6 +796,8 @@ investmentAmount.addEventListener("input", function () {
 
 // Open confirmation modal
 
+// Open confirmation modal
+
 activateButton.addEventListener("click", function () {
 
     const selectedPlan = getSelectedPlan();
@@ -805,28 +816,39 @@ activateButton.addEventListener("click", function () {
 
     }
 
+    // Calculate estimated returns
+
+    const profit = amount * (selectedPlan.rate / 100);
+
+    const total = amount + profit;
+
     // Display investment information
 
     confirmPlan.textContent = selectedPlan.name;
 
     confirmAmount.textContent =
-        "$" + amount.toLocaleString("en-US");
+        "$" + amount.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
 
-    confirmMinimum.textContent =
-        "$" + selectedPlan.minimum.toLocaleString("en-US");
+    confirmRate.textContent = selectedPlan.rate + "%";
+
+    confirmProfit.textContent =
+        "$" + profit.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+
+    confirmTotal.textContent =
+        "$" + total.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
 
     // Show modal
 
     investmentModal.classList.add("show");
-
-});
-
-
-// Cancel investment
-
-cancelInvestment.addEventListener("click", function () {
-
-    investmentModal.classList.remove("show");
 
 });
 
