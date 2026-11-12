@@ -113,6 +113,7 @@ body {
     width: 75%;
     border-bottom: 1px solid #1b2b42;
     position: fixed;
+    z-index: 100;
     
 }
 
@@ -733,49 +734,6 @@ body {
 
 }
 
-.profile_con{
-    width: 60px;
-    height: 60px;
-    float: right;
-    position: relative;
-
-}
-
-.profile_con input{
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    margin-right: 30px;
-    margin-top: 18px;
-    top: 0;
-    opacity: 0;
-}
-
-.profile_con span{
-    font-size: 25px;
-    font-weight: bold;
-    position: relative;
-    color: #ffffff;
-    margin-top: 40px;
-    margin-right: 40px;
-    
-}
-
-
-.profile_con img{
-    border-radius: 40%;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-}
-
-
-
-
-
-
-
-
 
 /* ACTIVE INVESTMENTS */
 
@@ -927,9 +885,6 @@ body {
     }
 
 }
-
-
-
 
 
 
@@ -1256,6 +1211,545 @@ body {
     .overview-filter {
         padding: 7px;
         font-size: 9px;
+    }
+
+}
+
+
+/* investment plan design */
+
+.investment_plan_con,.investment_plan_con2{
+    width: 80%;
+    display: flex;
+    margin: auto;
+    justify-content: space-between;
+
+}
+
+
+.investment-card {
+    width: 300px;
+    height: 300px;
+    margin-top: 50px;
+    padding: 10px;
+    border-width: 5px 1px 1px 1px;
+    border-style: solid;
+    border-color: #123b55;
+    border-radius: 18px;
+    background: linear-gradient(145deg, #101d32, #07111f);
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.08);
+}
+
+.investment-card:hover {
+    box-shadow: 0 0 25px rgba(0, 210, 255, 0.3);
+    transform: translateY(-5px);
+    transition: all 0.6s ease-in-out;
+   
+}
+
+.plan-label {
+    color: #00d9ff;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.investment-card h1 {
+    margin: 15px 0 10px;
+    font-size: 25px;
+}
+
+.description {
+    color: #a8b5c8;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.investment-range {
+    font-size: 12px;
+    margin-top: 5px;
+    padding: 12px;
+    background: #0b1728;
+    border: 1px solid #1c3047;
+    border-radius: 12px;
+}
+
+.investment-range span,
+.return-box span {
+    color: #a8b5c8;
+    font-size: 12px;
+}
+
+.investment-range h2 {
+    margin-top: 8px;
+    color: #ffffff;
+}
+
+.return-box {
+    margin-top: 10px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 12px;
+    background: rgba(0, 217, 255, 0.07);
+    border: 1px solid #07506a;
+}
+
+.return-box h2 {
+    margin: 10px 0;
+    color: #00d9ff;
+    font-size: 20px;
+}
+
+.return-box p {
+    color: #a8b5c8;
+    font-size: 13px;
+}
+
+
+
+
+
+.deposit-container {
+    width: 100%;
+    max-width: 750px;
+    margin: 30px auto;
+    background: #0d1729;
+    border: 1px solid #1b2b42;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.deposit-header {
+    margin-bottom: 25px;
+}
+
+.deposit-header h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.deposit-header p {
+    color: #91a2b9;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Payment Methods */
+
+.payment-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.payment-option {
+    background: #111f35;
+    border: 1px solid #243751;
+    border-radius: 9px;
+    padding: 18px 10px;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.payment-option:hover {
+    border-color: #1688f8;
+    background: #142943;
+}
+
+.payment-option.active {
+    background: #122c49;
+    border: 1px solid #1688f8;
+    box-shadow: 0 0 0 1px #1688f8;
+}
+
+/* Coin Icons */
+
+.coin-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.btc {
+    background: #f7931a;
+    color: #ffffff;
+}
+
+.trx {
+    background: #e50924;
+    color: #ffffff;
+}
+
+.usdt {
+    background: #26a17b;
+    color: #ffffff;
+}
+
+.coin-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.coin-network {
+    font-size: 11px;
+    color: #91a2b9;
+}
+
+/* Deposit Details */
+
+.deposit-details {
+    background: #101e33;
+    border: 1px solid #243751;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.selected-coin {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #243751;
+}
+
+.selected-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #f7931a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.selected-coin h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.selected-coin p {
+    color: #91a2b9;
+    font-size: 12px;
+}
+
+/* Address Section */
+
+.address-section {
+    margin-top: 22px;
+}
+
+.address-section label {
+    display: block;
+    font-size: 11px;
+    font-weight: bold;
+    color: #91a2b9;
+    margin-bottom: 10px;
+    letter-spacing: 0.7px;
+}
+
+.address-box {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #080f1e;
+    border: 1px solid #243751;
+    border-radius: 8px;
+    padding: 7px;
+}
+
+.address-box input {
+    width: 100%;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 13px;
+    padding: 10px;
+}
+
+.address-box button {
+    background: #1688f8;
+    border: none;
+    color: #ffffff;
+    padding: 11px 16px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap;
+    transition: 0.3s;
+}
+
+.address-box button:hover {
+    background: #0872d9;
+}
+
+.address-box button.copied {
+    background: #168b61;
+}
+
+.copy-icon {
+    font-size: 15px;
+    font-style: normal;
+}
+
+/* Copy Notification */
+
+#copyMessage {
+    display: block;
+    font-size: 12px;
+    color: #2ecc91;
+    margin-top: 10px;
+    min-height: 15px;
+}
+
+/* Warning */
+
+.deposit-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(255, 170, 0, 0.08);
+    border: 1px solid rgba(255, 170, 0, 0.2);
+    border-radius: 7px;
+    padding: 13px;
+    margin-top: 20px;
+}
+
+.deposit-warning span {
+    color: #ffb52e;
+    font-size: 17px;
+}
+
+.deposit-warning p {
+    color: #c4cddd;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .deposit-container {
+        padding: 17px;
+        margin: 15px auto;
+    }
+
+    .payment-methods {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .payment-option {
+        padding: 15px 8px;
+    }
+
+    .address-box {
+        flex-wrap: wrap;
+    }
+
+    .address-box input {
+        font-size: 11px;
+    }
+
+    .address-box button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+
+
+/* Payment Proof Container */
+
+.proof-container {
+    width: 100%;
+    max-width: 750px;
+    margin: 20px auto 30px;
+    background: #0d1729;
+    border: 1px solid #1b2b42;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.proof-header {
+    margin-bottom: 25px;
+}
+
+.proof-header h2 {
+    font-size: 21px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.proof-header p {
+    color: #91a2b9;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+/* Form Groups */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+.form-group label span {
+    color: #91a2b9;
+    font-size: 11px;
+    font-weight: normal;
+}
+
+/* File Upload */
+
+.file-upload-box {
+    position: relative;
+    width: 100%;
+    min-height: 155px;
+    border: 1px dashed #34516f;
+    border-radius: 9px;
+    background: #101e33;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.file-upload-box:hover {
+    border-color: #1688f8;
+    background: #142943;
+}
+
+.file-upload-box input {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-content {
+    pointer-events: none;
+    padding: 20px;
+}
+
+.upload-icon {
+    width: 40px;
+    height: 40px;
+    background: #172e49;
+    color: #1688f8;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    margin: 0 auto 12px;
+}
+
+.upload-content p {
+    color: #ffffff;
+    font-size: 13px;
+    margin-bottom: 7px;
+}
+
+.upload-content small {
+    color: #91a2b9;
+    font-size: 11px;
+}
+
+/* Remark Textarea */
+
+.form-group textarea {
+    width: 100%;
+    min-height: 110px;
+    padding: 14px;
+    background: #101e33;
+    border: 1px solid #243751;
+    border-radius: 8px;
+    outline: none;
+    resize: vertical;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.6;
+    transition: 0.3s;
+}
+
+.form-group textarea:focus {
+    border-color: #1688f8;
+}
+
+.form-group textarea::placeholder {
+    color: #70839b;
+}
+
+/* Submit Button */
+
+.submit-proof-btn {
+    width: 100%;
+    padding: 15px;
+    background: #1688f8;
+    border: none;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.submit-proof-btn:hover {
+    background: #0872d9;
+}
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    .proof-container {
+        padding: 17px;
+        margin-top: 15px;
+    }
+
+    .proof-header h2 {
+        font-size: 19px;
+    }
+
+    .file-upload-box {
+        min-height: 140px;
     }
 
 }

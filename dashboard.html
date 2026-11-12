@@ -317,6 +317,316 @@
 
  </section>
 
+ <section id="invest" class="content-section">
+    <h2>Invest</h2>
+    <p>Here you can invest in various plans.</p>
+
+
+    <div class="investment_plan_con">
+         <!-- basics plan -->
+        <section class="investment-card">
+         <p class="plan-label">coNNex Investment</p>
+
+         <h1>Basic Plan</h1>
+
+         <p class="description">
+            Start your investment journey with connex.
+         </p>
+
+         <div class="investment-range">
+            <span>Minimum Investment</span>
+            <h2>$100 - $500</h2>
+         </div>
+
+         <div class="return-box">
+            <span>Return Rate</span>
+            <h2>9%</h2>
+            <p>in 24 hours</p>
+         </div>
+
+        </section>
+
+        <!-- standard plan -->
+
+        <section class="investment-card">
+        <p class="plan-label">coNNex Investment</p>
+
+        <h1>Standard Plan</h1>
+
+        <p class="description">
+            Start your investment journey with connex.
+        </p>
+
+        <div class="investment-range">
+            <span>Minimum Investment</span>
+            <h2>$500 - $3,000</h2>
+        </div>
+
+        <div class="return-box">
+            <span>Return Rate</span>
+            <h2>13%</h2>
+            <p>in 7 days</p>
+        </div>
+
+        </section>
+    </div>
+
+    <div class="investment_plan_con2">
+        <!-- premium plan -->
+
+        <section class="investment-card">
+        <p class="plan-label">coNNex Investment</p>
+
+        <h1>Premium Plan</h1>
+
+        <p class="description">
+            Start your investment journey with connex.
+        </p>
+
+        <div class="investment-range">
+            <span>Minimum Investment</span>
+            <h2>$3,000 - $10,000</h2>
+        </div>
+
+        <div class="return-box">
+            <span>Return Rate</span>
+            <h2>18%</h2>
+            <p>in 30 days</p>
+        </div>
+        </section>
+
+        <!-- long term plan -->
+
+        <section class="investment-card">
+        <p class="plan-label">coNNex Investment</p>
+
+        <h1>Long Term Plan</h1>
+
+        <p class="description">
+            Start your investment journey with connex.
+        </p>
+
+        <div class="investment-range">
+            <span>Minimum Investment</span>
+            <h2>$10,000 - $25,000</h2>
+        </div>
+
+        <div class="return-box">
+            <span>Return Rate</span>
+            <h2>21%</h2>
+            <p>in 6 months</p>
+        </div>
+
+        </section>
+    </div>
+
+
+
+    
+ </section>
+
+    <section id="deposit" class="content-section">
+        <h2>Deposit</h2>
+        <p>Deposit funds into your account.</p>
+
+        <div class="deposit-container">
+
+        <div class="deposit-header">
+            <h2>Make a Deposit</h2>
+            <p>Select your preferred cryptocurrency payment method.</p>
+        </div>
+
+        <!-- Payment Methods -->
+
+        <div class="payment-methods">
+
+            <button class="payment-option active"
+                    data-method="btc">
+                <span class="coin-icon btc">₿</span>
+                <span class="coin-name">Bitcoin</span>
+                <span class="coin-network">BTC</span>
+            </button>
+
+            <button class="payment-option"
+                    data-method="trx">
+                <span class="coin-icon trx">T</span>
+                <span class="coin-name">TRON</span>
+                <span class="coin-network">TRX</span>
+            </button>
+
+            <button class="payment-option"
+                    data-method="trc20">
+                <span class="coin-icon usdt">₮</span>
+                <span class="coin-name">USDT</span>
+                <span class="coin-network">TRC20</span>
+            </button>
+
+            <button class="payment-option"
+                    data-method="erc20">
+                <span class="coin-icon usdt">₮</span>
+                <span class="coin-name">USDT</span>
+                <span class="coin-network">ERC20</span>
+            </button>
+
+            <button class="payment-option"
+                    data-method="bep20">
+                <span class="coin-icon usdt">₮</span>
+                <span class="coin-name">USDT</span>
+                <span class="coin-network">BEP20</span>
+            </button>
+
+        </div>
+
+        <!-- Deposit Address Container -->
+
+        <div class="deposit-details">
+
+            <div class="selected-coin">
+                <div class="selected-icon" id="selectedIcon">₿</div>
+
+                <div>
+                    <h3 id="selectedName">Bitcoin (BTC)</h3>
+                    <p id="selectedNetwork">Bitcoin Network</p>
+                </div>
+            </div>
+
+            <div class="address-section">
+
+                <label>YOUR DEPOSIT ADDRESS</label>
+
+                <div class="address-box">
+
+                    <input
+                        type="text"
+                        id="depositAddress"
+                        value="YOUR_BTC_WALLET_ADDRESS"
+                        readonly
+                    >
+
+                    <button id="copyButton" type="button">
+                        <i class="copy-icon">▢</i>
+                        Copy
+                    </button>
+
+                </div>
+
+                <span id="copyMessage"></span>
+
+            </div>
+
+            <div class="deposit-warning">
+                <span>⚠</span>
+                <p id="warningText">
+                    Only send BTC using the Bitcoin network.
+                    Sending another cryptocurrency may result in
+                    permanent loss of funds.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Payment Proof Upload Form -->
+
+<div class="proof-container">
+
+    <div class="proof-header">
+        <h2>Payment Verification</h2>
+        <p>Upload your payment receipt or screenshot for verification.</p>
+    </div>
+
+    <form id="paymentProofForm">
+
+        <!-- Upload Payment Proof -->
+
+        <div class="form-group">
+
+            <label for="paymentProof">
+                Upload Payment Proof
+            </label>
+
+            <div class="file-upload-box">
+
+                <input
+                    type="file"
+                    id="paymentProof"
+                    name="paymentProof"
+                    accept="image/*,.pdf"
+                    required
+                >
+
+                <div class="upload-content">
+                    <span class="upload-icon">↑</span>
+
+                    <p>Click to upload your payment proof</p>
+
+                    <small>PNG, JPG, JPEG or PDF</small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Remark Optional -->
+
+        <div class="form-group">
+
+            <label for="paymentRemark">
+                Remark <span>(Optional)</span>
+            </label>
+
+            <textarea
+                id="paymentRemark"
+                name="paymentRemark"
+                rows="4"
+                placeholder="Write anything concerning your payment here..."
+            ></textarea>
+
+        </div>
+
+
+        <!-- Submit Button -->
+
+        <button type="submit" class="submit-proof-btn">
+            Submit Payment Proof
+        </button>
+
+    </form>
+
+</div>
+    </section>
+
+    <section id="withdraw" class="content-section">
+        <h2>Withdraw</h2>
+        <p>Withdraw funds from your account.</p>
+    </section>
+
+    <section id="transactions" class="content-section">
+        <h2>Transactions</h2>
+        <p>View your transaction history.</p>
+    </section>
+
+    <section id="referrals" class="content-section">
+        <h2>Referrals</h2>
+        <p>Manage your referral program.</p>
+    </section>
+
+    <section id="kyc" class="content-section">
+        <h2>KYC Verification</h2>
+        <p>Complete your KYC verification.</p>
+    </section>
+
+    <section id="settings" class="content-section">
+        <h2>Settings</h2>
+        <p>Adjust your account settings.</p>
+    </section>
+
+
+    
+
 </main>
 
  <script src="./dashbord.js"></script>
