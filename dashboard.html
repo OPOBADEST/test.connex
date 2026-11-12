@@ -720,6 +720,154 @@
     <section id="withdraw" class="content-section">
         <h2>Withdraw</h2>
         <p>Withdraw funds from your account.</p>
+
+        <div class="withdraw-container">
+
+    <div class="withdraw-header">
+        <h2>Make a Withdrawal</h2>
+        <p>Select your preferred withdrawal method and enter your receiving details.</p>
+    </div>
+
+    <!-- Withdrawal Methods -->
+
+    <div class="withdraw-methods">
+
+        <button type="button" class="withdraw-option active"
+                data-method="btc">
+            <span class="coin-icon btc">₿</span>
+            <span class="coin-name">Bitcoin</span>
+            <span class="coin-network">BTC</span>
+        </button>
+
+        <button type="button" class="withdraw-option"
+                data-method="trx">
+            <span class="coin-icon trx">T</span>
+            <span class="coin-name">TRON</span>
+            <span class="coin-network">TRX</span>
+        </button>
+
+        <button type="button" class="withdraw-option"
+                data-method="trc20">
+            <span class="coin-icon usdt">₮</span>
+            <span class="coin-name">USDT</span>
+            <span class="coin-network">TRC20</span>
+        </button>
+
+        <button type="button" class="withdraw-option"
+                data-method="erc20">
+            <span class="coin-icon usdt">₮</span>
+            <span class="coin-name">USDT</span>
+            <span class="coin-network">ERC20</span>
+        </button>
+
+        <button type="button" class="withdraw-option"
+                data-method="bep20">
+            <span class="coin-icon usdt">₮</span>
+            <span class="coin-name">USDT</span>
+            <span class="coin-network">BEP20</span>
+        </button>
+
+    </div>
+
+
+    <!-- Withdrawal Details -->
+
+    <form id="withdrawForm" action="withdraw.php" method="POST">
+
+        <div class="withdraw-details">
+
+            <div class="selected-coin">
+
+                <div class="selected-icon" id="selectedIcon">₿</div>
+
+                <div>
+                    <h3 id="selectedName">Bitcoin (BTC)</h3>
+                    <p id="selectedNetwork">Bitcoin Network</p>
+                </div>
+
+            </div>
+
+
+            <!-- Withdrawal Amount -->
+
+            <div class="withdraw-form-group">
+
+                <label for="withdrawAmount">
+                    Withdrawal Amount (USD)
+                </label>
+
+                <div class="amount-box">
+
+                    <span>$</span>
+
+                    <input
+                        type="number"
+                        id="withdrawAmount"
+                        name="amount"
+                        placeholder="Enter withdrawal amount"
+                        min="0.01"
+                        step="any"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Receiving Wallet Address -->
+
+            <div class="withdraw-form-group">
+
+                <label for="walletAddress">
+                    Receiving Wallet Address
+                </label>
+
+                <input
+                    type="text"
+                    id="walletAddress"
+                    name="wallet_address"
+                    placeholder="Enter your receiving wallet address"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Network Information -->
+
+            <div class="network-warning">
+
+                <span>⚠</span>
+
+                <p id="networkWarning">
+                    Make sure your receiving wallet supports the Bitcoin network.
+                    Sending to an incorrect address may result in permanent loss.
+                </p>
+
+            </div>
+
+
+            <!-- Hidden Withdrawal Method -->
+
+            <input
+                type="hidden"
+                id="withdrawMethod"
+                name="withdrawal_method"
+                value="btc"
+            >
+
+            <!-- Withdraw Button -->
+
+            <button type="submit" class="withdraw-btn">
+                Withdraw
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
     </section>
 
     <section id="transactions" class="content-section">

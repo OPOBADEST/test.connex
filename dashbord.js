@@ -861,3 +861,137 @@ checkInvestmentAmount();
 
 
 
+
+// Withdrawal payment methods
+
+const withdrawalData = {
+
+    btc: {
+        name: "Bitcoin (BTC)",
+        network: "Bitcoin Network",
+        icon: "₿",
+        color: "#f7931a",
+        warning: "Make sure your receiving wallet supports the Bitcoin network. Sending to an incorrect address may result in permanent loss."
+    },
+
+    trx: {
+        name: "TRON (TRX)",
+        network: "TRON Network",
+        icon: "T",
+        color: "#e50924",
+        warning: "Make sure your receiving wallet supports the TRON network before requesting your withdrawal."
+    },
+
+    trc20: {
+        name: "USDT (TRC20)",
+        network: "TRON Network",
+        icon: "₮",
+        color: "#26a17b",
+        warning: "Make sure your receiving wallet supports USDT TRC20. Do not enter an ERC20 or BEP20 receiving address."
+    },
+
+    erc20: {
+        name: "USDT (ERC20)",
+        network: "Ethereum Network",
+        icon: "₮",
+        color: "#26a17b",
+        warning: "Make sure your receiving wallet supports USDT ERC20. Do not enter a TRC20 or BEP20 receiving address."
+    },
+
+    bep20: {
+        name: "USDT (BEP20)",
+        network: "BNB Smart Chain",
+        icon: "₮",
+        color: "#26a17b",
+        warning: "Make sure your receiving wallet supports USDT BEP20. Do not enter a TRC20 or ERC20 receiving address."
+    }
+
+};
+
+
+// Get HTML elements
+
+const withdrawOptions = document.querySelectorAll(".withdraw-option");
+
+const wselectedIcon = document.getElementById("selectedIcon");
+
+const wselectedName = document.getElementById("selectedName");
+
+const wselectedNetwork = document.getElementById("selectedNetwork");
+
+const networkWarning = document.getElementById("networkWarning");
+
+const withdrawMethod = document.getElementById("withdrawMethod");
+
+
+// Select withdrawal method
+
+withdrawOptions.forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        // Remove previous selection
+
+        withdrawOptions.forEach(option => {
+            option.classList.remove("active");
+        });
+
+        // Highlight selected method
+
+        this.classList.add("active");
+
+        // Get selected method
+
+        const method = this.dataset.method;
+
+        const payment = withdrawalData[method];
+
+        // Update withdrawal information
+
+        selectedIcon.textContent = payment.icon;
+
+        wselectedIcon.style.background = payment.color;
+
+        wselectedName.textContent = payment.name;
+
+        wselectedNetwork.textContent = payment.network;
+
+        networkWarning.textContent = payment.warning;
+
+        // Update hidden form input
+
+        withdrawMethod.value = method;
+
+    });
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

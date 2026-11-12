@@ -2074,3 +2074,301 @@ body {
     }
 
 }
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #080f1e;
+    color: #ffffff;
+    padding: 25px;
+}
+
+.withdraw-container {
+    width: 100%;
+    max-width: 750px;
+    margin: 30px auto;
+    background: #0d1729;
+    border: 1px solid #1b2b42;
+    border-radius: 12px;
+    padding: 25px;
+}
+
+.withdraw-header {
+    margin-bottom: 25px;
+}
+
+.withdraw-header h2 {
+    font-size: 23px;
+    margin-bottom: 8px;
+}
+
+.withdraw-header p {
+    color: #91a2b9;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Withdrawal Methods */
+
+.withdraw-methods {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.withdraw-option {
+    background: #111f35;
+    border: 1px solid #243751;
+    border-radius: 9px;
+    padding: 18px 10px;
+    color: #ffffff;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+
+.withdraw-option:hover {
+    border-color: #1688f8;
+    background: #142943;
+}
+
+.withdraw-option.active {
+    background: #122c49;
+    border: 1px solid #1688f8;
+    box-shadow: 0 0 0 1px #1688f8;
+}
+
+/* Cryptocurrency Icons */
+
+.coin-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.btc {
+    background: #f7931a;
+    color: #ffffff;
+}
+
+.trx {
+    background: #e50924;
+    color: #ffffff;
+}
+
+.usdt {
+    background: #26a17b;
+    color: #ffffff;
+}
+
+.coin-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.coin-network {
+    font-size: 11px;
+    color: #91a2b9;
+}
+
+/* Withdrawal Details */
+
+.withdraw-details {
+    background: #101e33;
+    border: 1px solid #243751;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Selected Coin */
+
+.selected-coin {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #243751;
+    margin-bottom: 22px;
+}
+
+.selected-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #f7931a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.selected-coin h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.selected-coin p {
+    color: #91a2b9;
+    font-size: 12px;
+}
+
+/* Form Groups */
+
+.withdraw-form-group {
+    margin-bottom: 22px;
+}
+
+.withdraw-form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* Amount Input */
+
+.amount-box {
+    width: 100%;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 13px;
+    background: #080f1e;
+    border: 1px solid #243751;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.amount-box:focus-within {
+    border-color: #1688f8;
+}
+
+.amount-box span {
+    color: #1688f8;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.amount-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: #ffffff;
+    font-size: 14px;
+}
+
+/* Wallet Address */
+
+.withdraw-form-group input[type="text"] {
+    width: 100%;
+    height: 48px;
+    background: #080f1e;
+    border: 1px solid #243751;
+    border-radius: 8px;
+    outline: none;
+    padding: 0 13px;
+    color: #ffffff;
+    font-size: 13px;
+    transition: 0.3s;
+}
+
+.withdraw-form-group input:focus {
+    border-color: #1688f8;
+}
+
+.withdraw-form-group input::placeholder,
+.amount-box input::placeholder {
+    color: #70839b;
+}
+
+/* Network Warning */
+
+.network-warning {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(255, 170, 0, 0.08);
+    border: 1px solid rgba(255, 170, 0, 0.2);
+    border-radius: 7px;
+    padding: 13px;
+    margin-bottom: 22px;
+}
+
+.network-warning span {
+    color: #ffb52e;
+    font-size: 17px;
+}
+
+.network-warning p {
+    color: #c4cddd;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* Withdraw Button */
+
+.withdraw-btn {
+    width: 100%;
+    padding: 15px;
+    background: #1688f8;
+    border: none;
+    border-radius: 7px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.withdraw-btn:hover {
+    background: #0872d9;
+}
+
+/* Mobile Responsive */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 12px;
+    }
+
+    .withdraw-container {
+        padding: 17px;
+        margin: 15px auto;
+    }
+
+    .withdraw-methods {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .withdraw-option {
+        padding: 15px 8px;
+    }
+
+    .withdraw-header h2 {
+        font-size: 20px;
+    }
+
+}
