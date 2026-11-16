@@ -194,6 +194,18 @@ body {
     font-size: 20px;
 }
 
+/* BNB icon */
+.payment-option[data-method="bnb"] .coin-icon {
+    color: #f3ba2f !important;
+    background: rgba(243, 186, 47, 0.12);
+}
+
+/* Ethereum icon */
+.payment-option[data-method="eth"] .coin-icon {
+    color: #627eea !important;
+    background: rgba(98, 126, 234, 0.12);
+}
+
 .balance span{
     display: none;
 }

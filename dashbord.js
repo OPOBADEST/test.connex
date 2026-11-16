@@ -525,6 +525,39 @@ const paymentData = {
         color: "#26a17b",
         address: "0xbcC77E53a1a460FdA83787B9a873E57f5e5d613e",
         warning: "Only send USDT using the BEP20 network. Do not send ERC20 or TRC20 tokens to this address."
+    },
+
+    // BNB
+
+    bnb: {
+        name: "BNB",
+        network: "BNB Smart Chain",
+        icon: "◆",
+        color: "#f3ba2f",
+        address: "0xbcC77E53a1a460FdA83787B9a873E57f5e5d613e",
+        warning: "Send BNB only through BNB Smart Chain."
+    },
+
+    // Ethereum
+
+    eth: {
+        name: "Ethereum (ETH)",
+        network: "Ethereum Network",
+        icon: "♦",
+        color: "#627eea",
+        address: "0xbcC77E53a1a460FdA83787B9a873E57f5e5d613e",
+        warning: "Send ETH only through the Ethereum Network."
+    },
+
+    // TON
+
+    ton: {
+        name: "TON",
+        network: "TON Open Network",
+        icon: "💎",
+        color: "#0098ea",
+        address: "UQCvxIFQ2c8R-MgyShlwhwFaZsIS2OKBDXJjAWl7-Flcwz6d",
+        warning: "Send TON only through the TON Open Network."
     }
 
 };
