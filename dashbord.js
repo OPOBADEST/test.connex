@@ -935,11 +935,11 @@ const withdrawalData = {
 
 const withdrawOptions = document.querySelectorAll(".withdraw-option");
 
-const wselectedIcon = document.getElementById("selectedIcon");
+const wselectedIcon = document.getElementById("wselectedIcon");
 
-const wselectedName = document.getElementById("selectedName");
+const wselectedName = document.getElementById("wselectedName");
 
-const wselectedNetwork = document.getElementById("selectedNetwork");
+const wselectedNetwork = document.getElementById("wselectedNetwork");
 
 const networkWarning = document.getElementById("networkWarning");
 
@@ -952,36 +952,35 @@ withdrawOptions.forEach(button => {
 
     button.addEventListener("click", function () {
 
-        // Remove previous selection
-
+        // Remove active class from all options
         withdrawOptions.forEach(option => {
             option.classList.remove("active");
         });
 
-        // Highlight selected method
-
+        // Highlight selected option
         this.classList.add("active");
 
-        // Get selected method
-
+        // Get selected payment method
         const method = this.dataset.method;
 
         const payment = withdrawalData[method];
 
-        // Update withdrawal information
+        if (!payment) return;
 
-        selectedIcon.textContent = payment.icon;
-
+        // Update selected cryptocurrency icon
+        wselectedIcon.textContent = payment.icon;
         wselectedIcon.style.background = payment.color;
 
+        // Update cryptocurrency name
         wselectedName.textContent = payment.name;
 
+        // Update network name
         wselectedNetwork.textContent = payment.network;
 
+        // Update network warning
         networkWarning.textContent = payment.warning;
 
-        // Update hidden form input
-
+        // Update hidden withdrawal method
         withdrawMethod.value = method;
 
     });
