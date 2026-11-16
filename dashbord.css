@@ -99,7 +99,6 @@ body {
 
 .main-content {
     margin-left: 250px;
-    padding: 35px;
     margin-top: 80px;
 }
 
@@ -132,10 +131,9 @@ body {
 .content-section {
     display: none;
     background: #0d1729;
-    padding: 30px;
     border-radius: 12px;
-    border: 1px solid #1b2b42;
     min-height: 180px;
+    width: 100%;
 }
 
 .content-section.active-section {
@@ -169,11 +167,11 @@ body {
     width: 200px;
     color: #4ade80;
     border-style: dashed;
-    border-width: 0px 0px 0px 2px ;
+    border-width: 0px 2px 0px 2px ;
     border-color: #00d4ff;
     padding: 20px;
     border-radius: 12px;
-    background-color: #03111b;
+    /* background-color: #03111b; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.70);
     
 }
