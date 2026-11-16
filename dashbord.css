@@ -52,7 +52,7 @@ body {
     gap: 9px;
 }
 
-.nav-link {
+.nav-link,.nav-link2 {
     display: flex;
     align-items: center;
     gap: 15px;
@@ -64,11 +64,18 @@ body {
     transition: 0.3s ease;
 }
 
-.nav-icon {
+.nav-icon,#nav-icon {
     font-size: 20px;
     width: 22px;
     text-align: center;
 }
+
+.nav-icon,#nav-icon {
+    font-size: 20px;
+    width: 22px;
+    text-align: center;
+}
+
 
 .nav-link:hover {
     background: #142b40;
@@ -110,7 +117,6 @@ body {
     padding-top: 8px;
     background-color: #080F1E;
     width: 75%;
-    border-bottom: 1px solid #1b2b42;
     position: fixed;
     z-index: 100;
     
@@ -134,6 +140,7 @@ body {
     border-radius: 12px;
     min-height: 180px;
     width: 100%;
+    
 }
 
 .content-section.active-section {
@@ -164,14 +171,14 @@ body {
 }
 
 .balance{
-    width: 200px;
+    width: 230px;
     color: #4ade80;
     border-style: dashed;
     border-width: 0px 2px 0px 2px ;
     border-color: #00d4ff;
     padding: 20px;
+    margin-top: 20px;
     border-radius: 12px;
-    /* background-color: #03111b; */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.70);
     
 }
@@ -266,8 +273,8 @@ body {
 
     .balance{
         width: 100%;
-        margin-right:50px ;
-        border-width: 0px 0px 0px 2px ;
+        margin-right:50px;
+        border-width: 0px 2px 0px 2px ;
         border-color: #00d4ff;
         padding: 10px;
         background-color: #0D1728;
@@ -347,10 +354,10 @@ body {
 
     .balance{
         width: 100%;
-        margin-right:50px ;
-        border-width: 0px 0px 0px 2px ;
+        /* margin-right:50px; */
+        border-width: 2px 2px 0px 2px ;
         border-color: #00d4ff;
-        padding: 10px;
+        /* padding: 10px; */
         background-color: #0D1728;
     }
 
@@ -424,14 +431,13 @@ body {
     .balances_main_con, .balances_main_con2 {
         flex-direction: column;
         gap: 20px;
-        width: 100%;
         
     }
 
     .balance{
         width: 100%;
-        margin-right:50px ;
-        border-width: 0px 0px 0px 2px ;
+        justify-content: last baseline;
+        border-width: 0px 2px 0px 2px ;
         border-color: #00d4ff;
         padding: 10px;
         background-color: #0D1728;
@@ -738,7 +744,6 @@ body {
 .active-investments {
     width: 100%;
     margin-top: 30px;
-    padding: 25px;
     background: #0e1729;
     border: 1px solid rgba(255, 255, 255, 0.07);
     border-radius: 12px;
@@ -746,13 +751,14 @@ body {
 }
 
 .active-investments-header {
-    margin-bottom: 25px;
+    margin-bottom: 25px
 }
 
 .active-investments-header h2 {
     font-size: 21px;
     font-weight: 600;
     margin-bottom: 8px;
+   
 }
 
 .active-investments-header p {

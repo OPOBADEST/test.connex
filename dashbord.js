@@ -7,7 +7,7 @@ const pageDetails = {
 
     invest: {
         title: "Invest",
-        subtitle: "Explore and manage your investments."
+        subtitle: "Here you can invest in various plans."
     },
 
     deposit: {

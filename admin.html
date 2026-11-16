@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>coNNex | Admin Workspace</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./admin.css">
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+
+        <a class="brand" href="#" data-page="home">
+            <span class="brand-mark">cN</span>
+            <span>co<span>NN</span>ex</span>
+        </a>
+
+        <p class="side-label">WORKSPACE</p>
+
+        <nav>
+
+            <button class="nav-link active" data-page="home">
+                <span>▦</span> Overview
+            </button>
+
+            <button class="nav-link" data-page="users">
+                <span>♙</span> Manage Users
+            </button>
+
+            <button class="nav-link" data-page="admins">
+                <span>♧</span> Administrators
+            </button>
+
+            <a href="manageinvestment.html"><button class="nav-link" data-page="investments">
+                <span>◈</span> Manage Investments
+            </button></a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+            <span class="online-dot"></span>
+            Admin workspace
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="main">
+
+        <!-- TOP HEADER -->
+        <header class="topbar">
+
+            <div>
+                <p class="eyebrow">coNNEX / ADMINISTRATION</p>
+
+                <h1 id="page-title">Admin overview</h1>
+
+                <p class="subhead" id="page-subtitle">
+                    Manage your platform from one place.
+                </p>
+            </div>
+
+            <div class="admin-chip">
+
+                <span class="admin-avatar">SA</span>
+
+                <span>
+                    <b>Super Admin</b>
+                    <small>Administrator</small>
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ================================= -->
+        <!-- ADMIN OVERVIEW / FIRST PAGE -->
+        <!-- ================================= -->
+
+        <section class="page-section active" id="home">
+
+            <div class="welcome">
+
+                <div>
+                    <p class="eyebrow">CONTROL CENTRE</p>
+
+                    <h2>Welcome to your workspace</h2>
+
+                    <p>Choose what you want to manage.</p>
+                </div>
+
+                <div class="welcome-icon">⌘</div>
+
+            </div>
+
+
+            <!-- QUICK MANAGEMENT CARDS -->
+
+            <div class="quick-grid">
+
+                <a href="manageinvestment.html">
+                    <button class="action-card" data-go="investments">
+
+                    <span class="card-icon cyan">◈</span>
+
+                    <span class="card-copy">
+                        <b>Manage Investments</b>
+                        <small>
+                            Review investment records, create and edit.
+                        </small>
+                    </span>
+
+                    <span class="card-arrow">→</span>
+
+                </button>
+                </a>
+
+
+                <button class="action-card" data-go="users">
+
+                    <span class="card-icon blue">♙</span>
+
+                    <span class="card-copy">
+                        <b>Manage Users</b>
+                        <small>
+                            View, add, edit or remove customer accounts.
+                        </small>
+                    </span>
+
+                    <span class="card-arrow">→</span>
+
+                </button>
+
+
+                <button class="action-card" data-go="admins">
+
+                    <span class="card-icon purple">♧</span>
+
+                    <span class="card-copy">
+                        <b>Manage Administrators</b>
+                        <small>
+                            Manage administrator accounts and access status.
+                        </small>
+                    </span>
+
+                    <span class="card-arrow">→</span>
+
+                </button>
+
+
+                <!-- <button class="action-card" data-modal="investment">
+
+                    <span class="card-icon gold">＋</span>
+
+                    <span class="card-copy">
+                        <b>Create Investment</b>
+                        <small>
+                            Open the investment creation form preview.
+                        </small>
+                    </span>
+
+                    <span class="card-arrow">→</span>
+
+                </button> -->
+
+            </div>
+
+
+            <!-- DASHBOARD SUMMARY -->
+
+            <div class="section-heading">
+
+                <div>
+                    <h3>Quick summary</h3>
+                    <p>Example workspace figures</p>
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <span>Total users</span>
+                    <b>128</b>
+                    <small>Customer accounts</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Administrators</span>
+                    <b>03</b>
+                    <small>Admin accounts</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Investments</span>
+                    <b>56</b>
+                    <small>All investment records</small>
+                </div>
+
+                <div class="stat-card">
+                    <span>Pending review</span>
+                    <b>08</b>
+                    <small>Awaiting admin action</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- MANAGE USERS PAGE -->
+        <!-- ================================= -->
+
+        <section class="page-section" id="users">
+
+            <div class="section-toolbar">
+
+                <div>
+                    <h2>Users</h2>
+                    <p>Manage customer accounts and account access.</p>
+                </div>
+
+                <button class="primary-btn" data-modal="user">
+                    ＋ Add user
+                </button>
+
+            </div>
+
+
+            <div class="table-panel">
+
+                <div class="table-tools">
+
+                    <input
+                        class="search"
+                        data-search="users-table"
+                        placeholder="Search name, username or email..."
+                    >
+
+                    <span class="record-count">Customer accounts</span>
+
+                </div>
+
+
+                <div class="table-scroll">
+
+                    <table id="users-table">
+
+                        <thead>
+                            <tr>
+                                <th>USER</th>
+                                <th>USERNAME</th>
+                                <th>EMAIL ADDRESS</th>
+                                <th>DATE JOINED</th>
+                                <th>STATUS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <div class="person">
+                                        <span class="avatar">JD</span>
+                                        <b>John Daniels</b>
+                                    </div>
+                                </td>
+
+                                <td>@jdaniels</td>
+                                <td>john.daniels@email.com</td>
+                                <td>24 Oct 2026</td>
+
+                                <td>
+                                    <span class="status active">Active</span>
+                                </td>
+
+                                <td>
+                                    <div class="actions">
+                                        <button class="mini-btn edit" data-edit="John Daniels">Edit</button>
+                                        <button class="mini-btn delete" data-delete="John Daniels">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <div class="person">
+                                        <span class="avatar violet">AM</span>
+                                        <b>Amina Musa</b>
+                                    </div>
+                                </td>
+
+                                <td>@aminam</td>
+                                <td>amina.musa@email.com</td>
+                                <td>21 Oct 2026</td>
+
+                                <td>
+                                    <span class="status active">Active</span>
+                                </td>
+
+                                <td>
+                                    <div class="actions">
+                                        <button class="mini-btn edit" data-edit="Amina Musa">Edit</button>
+                                        <button class="mini-btn delete" data-delete="Amina Musa">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <div class="person">
+                                        <span class="avatar amber">PK</span>
+                                        <b>Peter King</b>
+                                    </div>
+                                </td>
+
+                                <td>@pking</td>
+                                <td>peter.king@email.com</td>
+                                <td>18 Oct 2026</td>
+
+                                <td>
+                                    <span class="status pending">Pending</span>
+                                </td>
+
+                                <td>
+                                    <div class="actions">
+                                        <button class="mini-btn edit" data-edit="Peter King">Edit</button>
+                                        <button class="mini-btn delete" data-delete="Peter King">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <div class="person">
+                                        <span class="avatar rose">SO</span>
+                                        <b>Sarah Okoro</b>
+                                    </div>
+                                </td>
+
+                                <td>@sokoro</td>
+                                <td>sarah.okoro@email.com</td>
+                                <td>15 Oct 2026</td>
+
+                                <td>
+                                    <span class="status suspended">Suspended</span>
+                                </td>
+
+                                <td>
+                                    <div class="actions">
+                                        <button class="mini-btn edit" data-edit="Sarah Okoro">Edit</button>
+                                        <button class="mini-btn delete" data-delete="Sarah Okoro">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="table-foot">
+                    Showing sample customer records
+
+                    <span>‹　<span class="current-page">1</span>　›</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- ADMINISTRATORS PAGE -->
+        <!-- ================================= -->
+
+        <section class="page-section" id="admins">
+
+            <div class="section-toolbar">
+
+                <div>
+                    <h2>Administrators</h2>
+                    <p>Manage people who can access the admin workspace.</p>
+                </div>
+
+                <button class="primary-btn" data-modal="admin">
+                    ＋ Add administrator
+                </button>
+
+            </div>
+
+
+            <div class="table-panel">
+
+                <div class="table-tools">
+
+                    <input
+                        class="search"
+                        data-search="admins-table"
+                        placeholder="Search administrator or email..."
+                    >
+
+                    <span class="record-count">Admin accounts</span>
+
+                </div>
+
+
+                <div class="table-scroll">
+
+                    <table id="admins-table">
+
+                        <thead>
+                            <tr>
+                                <th>ADMINISTRATOR</th>
+                                <th>USERNAME</th>
+                                <th>EMAIL ADDRESS</th>
+                                <th>DATE ADDED</th>
+                                <th>STATUS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>
+                                    <div class="person">
+                                        <span class="avatar">SA</span>
+                                        <b>Super Admin</b>
+                                    </div>
+                                </td>
+
+                                <td>@superadmin</td>
+                                <td>admin@connex.example</td>
+                                <td>02 Sep 2026</td>
+
+                                <td>
+                                    <span class="status active">Active</span>
+                                </td>
+
+                                <td>
+                                    <div class="actions">
+                                        <button class="mini-btn edit" data-edit="Super Admin">Edit</button>
+                                        <button class="mini-btn delete" data-delete="Super Admin">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <div class="person">
+                                        <span class="avatar violet">MO</span>
+                                        <b>Michael Owen</b>
+                                    </div>
+                                </td>
+
+                                <td>@mowen</td>
+                                <td>m.owen@connex.example</td>
+                                <td>11 Sep 2026</td>
+
+                                <td>
+                                    <span class="status active">Active</span>
+                                </td>
+
+                                <td>
+                                    <div class="actions">
+                                        <button class="mini-btn edit" data-edit="Michael Owen">Edit</button>
+                                        <button class="mini-btn delete" data-delete="Michael Owen">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    <div class="person">
+                                        <span class="avatar amber">TA</span>
+                                        <b>Tina Adams</b>
+                                    </div>
+                                </td>
+
+                                <td>@tadams</td>
+                                <td>t.adams@connex.example</td>
+                                <td>06 Oct 2026</td>
+
+                                <td>
+                                    <span class="status pending">Invited</span>
+                                </td>
+
+                                <td>
+                                    <div class="actions">
+                                        <button class="mini-btn edit" data-edit="Tina Adams">Edit</button>
+                                        <button class="mini-btn delete" data-delete="Tina Adams">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <div class="table-foot">
+                    Showing sample administrator records
+
+                    <span>‹　<span class="current-page">1</span>　›</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================================= -->
+        <!-- INVESTMENTS PAGE -->
+        <!-- ================================= -->
+
+        <section class="page-section" id="investments">
+
+            <div class="section-toolbar">
+
+                <div>
+                    <h2>Investments</h2>
+                    <p>Review and manage customer investment records.</p>
+                </div>
+
+                <button class="primary-btn" data-modal="investment">
+                    ＋ Create investment
+                </button>
+
+            </div>
+
+
+            <div class="table-panel">
+
+                <div class="table-tools">
+
+                    <input
+                        class="search"
+                        data-search="investments-table"
+                        placeholder="Search investment ID or customer..."
+                    >
+
+                    <span class="record-count">Investment records</span>
+
+                </div>
+
+
+                <div class="table-scroll">
+
+                    <table id="investments-table">
+
+                        <thead>
+                            <tr>
+                                <th>INVESTMENT ID</th>
+                                <th>CUSTOMER</th>
+                                <th>PLAN</th>
+                                <th>AMOUNT</th>
+                                <th>START DATE</th>
+                                <th>STATUS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td class="id">#CNX-1048</td>
+                                <td>John Daniels</td>
+                                <td><span class="plan basic">Basic</span></td>
+                                <td class="amount">$250.00</td>
+                                <td>28 Oct 2026</td>
+                                <td><span class="status progress">In progress</span></td>
+
+                                <td>
+                                    <div class="actions">
+                                        <button class="mini-btn edit" data-edit="CNX-1048">Edit</button>
+                                        <button class="mini-btn delete" data-delete="CNX-1048">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="id">#CNX-1047</td>
+                                <td>Amina Musa</td>
+                                <td><span class="plan standard">Standard</span></td>
+                                <td class="amount">$1,000.00</td>
+                                <td>26 Oct 2026</td>
+                                <td><span class="status pending">Pending</span>
+
+                             </tr>
+
+                             
+
+
+
+    <script src="./admin.js"></script>
+</body >                           
+</html>

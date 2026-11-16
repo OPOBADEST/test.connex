@@ -1,0 +1,494 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coNNex Investment Calculator</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #081321;
+            color: white;
+            padding: 30px 15px;
+        }
+
+        .calculator {
+            max-width: 420px;
+            margin: auto;
+            background: #142438;
+            padding: 25px;
+            border-radius: 15px;
+        }
+
+        h1 {
+            color: #52d9e8;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 13px;
+            margin-top: 8px;
+            box-sizing: border-box;
+            border-radius: 8px;
+            border: 1px solid #52657b;
+            font-size: 16px;
+        }
+
+        .result {
+            margin-top: 25px;
+            padding: 18px;
+            background: #081321;
+            border-radius: 10px;
+            line-height: 2;
+            overflow-wrap: anywhere;
+        }
+
+        .profit {
+            color: #52d9e8;
+            font-weight: bold;
+        }
+
+        .total {
+            font-size: 22px;
+            font-weight: bold;
+            color: #52d9e8;
+        }
+
+        .note {
+            color: #bdc9d8;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="calculator">
+    <h1>coNNex</h1>
+    <h2>Investment Calculator</h2>
+
+    <label for="plan">Select Investment Plan</label>
+    <select id="plan">
+        <option value="9">Basic Plan — 9%</option>
+        <option value="13">Standard Plan — 13%</option>
+        <option value="18">Premium Plan — 18%</option>
+        <option value="21">Long-Term Plan — 21%</option>
+    </select>
+
+    <label for="amount">Investment Amount (USD)</label>
+    <input
+        type="number"
+        id="amount"
+        placeholder="Enter investment amount"
+        min="100"
+        step="0.01"
+    >
+
+    <div class="result" aria-live="polite">
+        <div>Selected rate: <strong id="rate">9%</strong></div>
+        <div>Investment: <strong id="investment">$0.00</strong></div>
+        <div>Estimated profit:
+            <span class="profit" id="profit">$0.00</span>
+        </div>
+        <hr>
+        <div>Estimated total:</div>
+        <div class="total" id="total">$0.00</div>
+        <p class="note" id="message">
+            Enter at least $100 to see your estimate.
+        </p>
+    </div>
+
+    <p class="note">
+        These figures are mathematical estimates, not guaranteed returns.
+        Actual investment results may be lower, including a loss of capital.
+    </p>
+</div>
+
+<script>
+    const plan = document.getElementById("plan");
+    const amount = document.getElementById("amount");
+
+    const rateOutput = document.getElementById("rate");
+    const investmentOutput = document.getElementById("investment");
+    const profitOutput = document.getElementById("profit");
+    const totalOutput = document.getElementById("total");
+    const message = document.getElementById("message");
+
+    function money(value) {
+        return "$" + value.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
+
+    function autoCalculate() {
+        const rate = Number(plan.value);
+        const enteredAmount = amount.value;
+        const investment = Number(enteredAmount);
+
+        rateOutput.textContent = rate + "%";
+
+        if (
+            enteredAmount.trim() === "" ||
+            !Number.isFinite(investment) ||
+            investment < 100
+        ) {
+            investmentOutput.textContent = "$0.00";
+            profitOutput.textContent = "$0.00";
+            totalOutput.textContent = "$0.00";
+            message.textContent =
+                "Enter at least $100 to see your estimate.";
+            return;
+        }
+
+        // Calculate automatically as the user types
+        const profit = investment * rate / 100;
+        const total = investment + profit;
+
+        investmentOutput.textContent = money(investment);
+        profitOutput.textContent = money(profit);
+        totalOutput.textContent = money(total);
+
+        message.textContent =
+            "Illustrative estimate at " + rate +
+            "%. No return is guaranteed.";
+    }
+
+    // Recalculate whenever the amount changes
+    amount.addEventListener("input", autoCalculate);
+
+    // Recalculate whenever the plan changes
+    plan.addEventListener("change", autoCalculate);
+
+    // Show the default plan rate immediately
+    autoCalculate();
+</script>
+
+</body>
+</html>
+
+<!-- Investment Modal 
+ very imporrtant--> 
+         <!-- <div class="modal" id="investmentModal">
+            <div class="modal-content">
+             <button class="close-btn" id="closeModal"
+                aria-label="Close">&times;</button>
+
+             <h2>Basic Plan</h2>
+             <p>Enter the amount you want to calculate.</p>
+
+             <label for="amount">Investment Amount (USD)</label>
+
+             <input
+                type="number"
+                id="amount"
+                placeholder="Enter $100 - $500"
+                min="100"
+                max="500"
+                step="0.01"
+               >
+
+             <button id="calculateBtn">Calculate Return</button>
+
+              <div id="result" aria-live="polite"></div>
+            </div>
+         </div> -->
+
+
+
+
+         <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>coNNex - Deposit</title>
+
+    <link rel="stylesheet" href="./testing.css">
+</head>
+<body>
+
+    <div class="deposit-container">
+
+        <div class="deposit-header">
+            <h2>Make a Deposit</h2>
+            <p>Select your preferred cryptocurrency payment method.</p>
+        </div>
+
+        <!-- Payment Methods -->
+
+        <div class="payment-methods">
+
+            <button class="payment-option active"
+                    data-method="btc">
+                <span class="coin-icon btc">₿</span>
+                <span class="coin-name">Bitcoin</span>
+                <span class="coin-network">BTC</span>
+            </button>
+
+            <button class="payment-option"
+                    data-method="trx">
+                <span class="coin-icon trx">T</span>
+                <span class="coin-name">TRON</span>
+                <span class="coin-network">TRX</span>
+            </button>
+
+            <button class="payment-option"
+                    data-method="trc20">
+                <span class="coin-icon usdt">₮</span>
+                <span class="coin-name">USDT</span>
+                <span class="coin-network">TRC20</span>
+            </button>
+
+            <button class="payment-option"
+                    data-method="erc20">
+                <span class="coin-icon usdt">₮</span>
+                <span class="coin-name">USDT</span>
+                <span class="coin-network">ERC20</span>
+            </button>
+
+            <button class="payment-option"
+                    data-method="bep20">
+                <span class="coin-icon usdt">₮</span>
+                <span class="coin-name">USDT</span>
+                <span class="coin-network">BEP20</span>
+            </button>
+
+        </div>
+
+        <!-- Deposit Address Container -->
+
+        <div class="deposit-details">
+
+            <div class="selected-coin">
+                <div class="selected-icon" id="selectedIcon">₿</div>
+
+                <div>
+                    <h3 id="selectedName">Bitcoin (BTC)</h3>
+                    <p id="selectedNetwork">Bitcoin Network</p>
+                </div>
+            </div>
+
+            <div class="address-section">
+
+                <label>YOUR DEPOSIT ADDRESS</label>
+
+                <div class="address-box">
+
+                    <input
+                        type="text"
+                        id="depositAddress"
+                        value="YOUR_BTC_WALLET_ADDRESS"
+                        readonly
+                    >
+
+                    <button id="copyButton" type="button">
+                        <i class="copy-icon">▢</i>
+                        Copy
+                    </button>
+
+                </div>
+
+                <span id="copyMessage"></span>
+
+            </div>
+
+            <div class="deposit-warning">
+                <span>⚠</span>
+                <p id="warningText">
+                    Only send BTC using the Bitcoin network.
+                    Sending another cryptocurrency may result in
+                    permanent loss of funds.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="./testing.js"></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>coNNex - Withdraw</title>
+
+    <link rel="stylesheet" href="withdraw.css">
+</head>
+
+<body>
+
+<div class="withdraw-container">
+
+    <div class="withdraw-header">
+        <h2>Make a Withdrawal</h2>
+        <p>Select your preferred withdrawal method and enter your receiving details.</p>
+    </div>
+
+    <!-- Withdrawal Methods -->
+
+    <div class="withdraw-methods">
+
+        <button type="button" class="withdraw-option active"
+                data-method="btc">
+            <span class="coin-icon btc">₿</span>
+            <span class="coin-name">Bitcoin</span>
+            <span class="coin-network">BTC</span>
+        </button>
+
+        <button type="button" class="withdraw-option"
+                data-method="trx">
+            <span class="coin-icon trx">T</span>
+            <span class="coin-name">TRON</span>
+            <span class="coin-network">TRX</span>
+        </button>
+
+        <button type="button" class="withdraw-option"
+                data-method="trc20">
+            <span class="coin-icon usdt">₮</span>
+            <span class="coin-name">USDT</span>
+            <span class="coin-network">TRC20</span>
+        </button>
+
+        <button type="button" class="withdraw-option"
+                data-method="erc20">
+            <span class="coin-icon usdt">₮</span>
+            <span class="coin-name">USDT</span>
+            <span class="coin-network">ERC20</span>
+        </button>
+
+        <button type="button" class="withdraw-option"
+                data-method="bep20">
+            <span class="coin-icon usdt">₮</span>
+            <span class="coin-name">USDT</span>
+            <span class="coin-network">BEP20</span>
+        </button>
+
+    </div>
+
+
+    <!-- Withdrawal Details -->
+
+    <form id="withdrawForm" action="withdraw.php" method="POST">
+
+        <div class="withdraw-details">
+
+            <div class="selected-coin">
+
+                <div class="selected-icon" id="selectedIcon">₿</div>
+
+                <div>
+                    <h3 id="selectedName">Bitcoin (BTC)</h3>
+                    <p id="selectedNetwork">Bitcoin Network</p>
+                </div>
+
+            </div>
+
+
+            <!-- Withdrawal Amount -->
+
+            <div class="withdraw-form-group">
+
+                <label for="withdrawAmount">
+                    Withdrawal Amount (USD)
+                </label>
+
+                <div class="amount-box">
+
+                    <span>$</span>
+
+                    <input
+                        type="number"
+                        id="withdrawAmount"
+                        name="amount"
+                        placeholder="Enter withdrawal amount"
+                        min="0.01"
+                        step="any"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Receiving Wallet Address -->
+
+            <div class="withdraw-form-group">
+
+                <label for="walletAddress">
+                    Receiving Wallet Address
+                </label>
+
+                <input
+                    type="text"
+                    id="walletAddress"
+                    name="wallet_address"
+                    placeholder="Enter your receiving wallet address"
+                    required
+                >
+
+            </div>
+
+
+            <!-- Network Information -->
+
+            <div class="network-warning">
+
+                <span>⚠</span>
+
+                <p id="networkWarning">
+                    Make sure your receiving wallet supports the Bitcoin network.
+                    Sending to an incorrect address may result in permanent loss.
+                </p>
+
+            </div>
+
+
+            <!-- Hidden Withdrawal Method -->
+
+            <input
+                type="hidden"
+                id="withdrawMethod"
+                name="withdrawal_method"
+                value="btc"
+            >
+
+            <!-- Withdraw Button -->
+
+            <button type="submit" class="withdraw-btn">
+                Withdraw
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+<script src="withdraw.js"></script>
+
+</body>
+</html>
