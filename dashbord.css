@@ -10,6 +10,250 @@ body {
     color: #ffffff;
 }
 
+
+/* =====================================
+   coNNex WHATSAPP LIVE SUPPORT
+===================================== */
+
+.whatsapp-support {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    z-index: 99999;
+    font-family: inherit;
+}
+
+/* FLOATING BUTTON */
+
+.whatsapp-launcher {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    border: none;
+    background: transparent;
+    cursor: grab;
+    padding: 0;
+    touch-action: none;
+    user-select: none;
+}
+
+.whatsapp-launcher:active {
+    cursor: grabbing;
+}
+
+.whatsapp-icon {
+    width: 58px;
+    height: 58px;
+    border-radius: 50%;
+    background: #20c968;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.2s;
+}
+
+.whatsapp-icon svg {
+    width: 34px;
+    height: 34px;
+}
+
+.whatsapp-launcher:hover .whatsapp-icon {
+    transform: scale(1.08);
+}
+
+/* LIVE SUPPORT LABEL */
+
+.live-support-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #102c25;
+    color: white;
+    padding: 11px 15px;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.live-dot {
+    width: 9px;
+    height: 9px;
+    display: inline-block;
+    flex-shrink: 0;
+    background: #27d879;
+    border-radius: 50%;
+    animation: supportPulse 1.5s infinite;
+}
+
+@keyframes supportPulse {
+    0%, 100% {
+        opacity: 1;
+        box-shadow: 0 0 0 0 rgba(39, 216, 121, 0.6);
+    }
+
+    50% {
+        opacity: 0.4;
+        box-shadow: 0 0 0 6px rgba(39, 216, 121, 0);
+    }
+}
+
+/* SUPPORT POPUP */
+
+.whatsapp-panel {
+    position: absolute;
+    right: 0;
+    bottom: 65px;
+
+    width: 320px;
+    max-width: calc(100vw - 30px);
+
+    max-height: 65vh;
+    overflow-y: auto;
+
+    background: #ffffff;
+    border-radius: 16px;
+    overflow-x: hidden;
+
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px) scale(0.96);
+    transform-origin: bottom right;
+    transition: 0.25s ease;
+}
+.whatsapp-panel.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+}
+
+/* POPUP HEADER */
+
+.whatsapp-panel-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 17px;
+    background: #087b52;
+    color: #ffffff;
+}
+
+.support-avatar {
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #20c968;
+    border-radius: 50%;
+}
+
+.support-avatar svg {
+    width: 28px;
+    height: 28px;
+}
+
+.support-header-text {
+    flex: 1;
+}
+
+.support-header-text h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+}
+
+.support-header-text p {
+    margin: 0;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.support-close {
+    background: transparent;
+    border: none;
+    color: #ffffff;
+    font-size: 27px;
+    cursor: pointer;
+}
+
+/* POPUP BODY */
+
+.whatsapp-panel-body {
+    padding: 17px;
+}
+
+.support-welcome {
+    background: #f0f8f4;
+    padding: 14px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.support-welcome h4 {
+    margin: 0 0 7px;
+    color: #153d2d;
+    font-size: 14px;
+}
+
+.support-welcome p {
+    margin: 0;
+    color: #52665b;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+/* QUESTIONS */
+
+.support-questions {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.support-question {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #e1ebe5;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #243a30;
+    font-size: 13px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.support-question:hover {
+    background: #eaf8f0;
+    border-color: #20c968;
+    color: #087b52;
+}
+
+.support-question span {
+    font-size: 22px;
+    color: #20a96a;
+}
+
+/* FOOTER */
+
+.support-footer {
+    margin: 15px 0 0;
+    color: #89978f;
+    text-align: center;
+    font-size: 11px;
+}
+
 /* Sidebar */
 
 .sidebar {
@@ -226,6 +470,40 @@ body {
     z-index: 1100;
 }
 
+.deposit_amount{
+    width: 100%;
+    background-color: #101E33;
+    border: 1px solid #243751;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.deposit_amount label{
+    text-transform: capitalize;
+}
+
+.deposit_amount input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #07111f;
+    color: #ffffff;
+    font-size: 15px;
+    outline: none;
+    transition: 0.3s;
+    border:1px solid #243751;
+}
+
+.deposit_amount input:focus{
+    border-color: #0872D9;
+}
+
+.deposit_amount input::placeholder{
+    color: #67798F;
+    font-weight: bold;
+    font-size: 12px;
+}
+
 /* Responsive */
 
 
@@ -366,10 +644,8 @@ body {
 
     .balance{
         width: 100%;
-        /* margin-right:50px; */
-        border-width: 2px 2px 0px 2px ;
+        border-width: 0px 2px 0px 2px ;
         border-color: #00d4ff;
-        /* padding: 10px; */
         background-color: #0D1728;
     }
 
@@ -530,7 +806,7 @@ body {
     .balance{
         width: 100%;
         margin-right:50px ;
-        border-width: 0px 0px 0px 2px ;
+        border-width: 0px 2px 0px 2px ;
         border-color: #00d4ff;
         padding: 10px;
         background-color: #0D1728;
@@ -609,7 +885,7 @@ body {
     .balance{
         width: 100%;
         margin-right:50px ;
-        border-width: 0px 0px 0px 2px ;
+        border-width: 0px 2px 0px 2px ;
         border-color: #00d4ff;
         padding: 10px;
         background-color: #0D1728;
@@ -671,6 +947,7 @@ body {
 
     .balance{
         width: 100%;
+        border-width: 0px 2px 0px 2px ;
         margin: 0;
     }
 
@@ -729,6 +1006,7 @@ body {
 
     .balance{
         width: 100%;
+        border-width: 0px 2px 0px 2px ;
         margin: 0;
     }
 
@@ -2046,7 +2324,8 @@ body {
 }
 
 .form-group textarea:focus {
-    border-color: #1688f8;
+    border-color: #0872D9;
+    
 }
 
 .form-group textarea::placeholder {

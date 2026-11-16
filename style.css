@@ -848,7 +848,6 @@ input, select {
 .sixth_flow_con_discription h1{
             font-family: sans-serif;
             font-size: 60px;
-            color: #0b1728;
             font-weight: bold;
             text-transform: capitalize;
             color: #00b8dc;
@@ -1491,6 +1490,7 @@ footer{
 
     .forth_flow_con{
         flex-direction: column;
+        gap: 20px;
     }
 
     .investment-card{
@@ -1703,11 +1703,12 @@ footer{
 
     .faq_main_con,.faq_main_con2{
         flex-direction: column;
+        gap: 20px;
     }
 
     .faq_con,.faq_con2{
-        width: 90%;
-        background-color: #081321;
+        width: 100%;
+        background-color: #0D1B2A;
         text-align: center;
 
     }
@@ -2022,6 +2023,7 @@ footer{
 
     .forth_flow_con{
         flex-direction: column;
+        gap: 20px;
     }
 
     .investment-card{
@@ -2234,11 +2236,12 @@ footer{
 
     .faq_main_con,.faq_main_con2{
         flex-direction: column;
+        gap: 20px;
     }
 
     .faq_con,.faq_con2{
-        width: 90%;
-        background-color: #081321;
+        width: 100%;
+        background-color: #0D1B2A;
         text-align: center;
 
     }
@@ -2548,6 +2551,7 @@ footer{
 
     .forth_flow_con{
         flex-direction: column;
+        gap: 20px;
     }
 
     .investment-card{
@@ -2760,11 +2764,12 @@ footer{
 
     .faq_main_con,.faq_main_con2{
         flex-direction: column;
+        gap: 20px;
     }
 
     .faq_con,.faq_con2{
-        width: 90%;
-        background-color: #081321;
+        width: 100%;
+        background-color: #0D1B2A;
         text-align: center;
 
     }
@@ -3077,6 +3082,7 @@ footer{
 
     .forth_flow_con{
         flex-direction: column;
+        gap: 20px;
     }
 
     .investment-card{
@@ -3287,11 +3293,12 @@ footer{
 
     .faq_main_con,.faq_main_con2{
         flex-direction: column;
+        gap: 20px;
     }
 
     .faq_con,.faq_con2{
-        width: 90%;
-        background-color: #081321;
+        width: 100%;
+        background-color: #0D1B2A;
         text-align: center;
 
     }
@@ -3567,6 +3574,7 @@ footer{
         flex-direction: column;
         width: 50%;
         margin: auto;
+        gap: 20px;
     }
 
     .plan-label{
@@ -3698,8 +3706,6 @@ footer{
     #explore_more{
         width: 80%;
         flex-direction: column;
-        /* margin: auto; */
-        /* justify-content: center; */
     }
 
     .faq_con,.faq_con2{
@@ -3917,6 +3923,7 @@ footer{
         flex-direction: column;
         width: 50%;
         margin: auto;
+        gap: 20px;
     }
 
     .plan-label{

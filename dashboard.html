@@ -739,7 +739,13 @@
             </div>
 
         </div>
-
+            
+        <div class="form-group">
+            <div class="deposit_amount">
+             <label for="depositedAmount">amount you deposited</label>
+             <input type="number" name="amount" id="" placeholder="Enter the deposited amount" required>
+            </div>
+        </div>
 
         <!-- Remark Optional -->
 
@@ -942,7 +948,135 @@
 
 </main>
 
- <script src="./dashbord.js"></script>
 
+
+<!-- coNNex WHATSAPP LIVE SUPPORT -->
+
+<div class="whatsapp-support" id="whatsappSupport">
+
+    <!-- FLOATING BUTTON -->
+
+    <button
+        type="button"
+        class="whatsapp-launcher"
+        id="whatsappLauncher"
+        aria-label="Open WhatsApp Live Support"
+        aria-expanded="false"
+    >
+
+        <span class="live-support-label">
+            <span class="live-dot"></span>
+            Live Support
+        </span>
+
+        <span class="whatsapp-icon">
+            <svg viewBox="0 0 32 32"
+                 xmlns="http://www.w3.org/2000/svg">
+                <path fill="currentColor"
+                    d="M16.02 3C8.84 3 3 8.78 3 15.9c0 2.27.6 4.49 1.74 6.43L3 29l6.88-1.8a13.1 13.1 0 0 0 6.14 1.53h.01C23.2 28.73 29 22.95 29 15.84A12.8 12.8 0 0 0 16.02 3zm0 23.5c-1.9 0-3.76-.5-5.38-1.46l-.39-.23-4.08 1.07 1.09-3.96-.25-.4a10.3 10.3 0 0 1-1.6-5.62c0-5.76 4.72-10.45 10.62-10.45 2.82 0 5.47 1.08 7.47 3.05a10.3 10.3 0 0 1 3.1 7.36c0 5.75-4.72 10.44-10.58 10.44zm5.82-7.82c-.32-.16-1.91-.94-2.21-1.04-.3-.1-.52-.16-.74.16-.22.33-.85 1.04-1.04 1.25-.19.22-.38.24-.7.08-.32-.16-1.36-.5-2.6-1.6-.96-.84-1.61-1.88-1.8-2.2-.19-.32-.02-.5.14-.66.14-.14.32-.38.48-.57.16-.19.22-.32.32-.54.1-.22.05-.41-.03-.57-.08-.16-.73-1.74-1-2.38-.26-.62-.53-.54-.73-.55h-.63c-.22 0-.57.08-.87.41-.3.32-1.14 1.1-1.14 2.68s1.17 3.1 1.33 3.32c.16.22 2.3 3.5 5.58 4.9.78.34 1.39.55 1.86.7.78.24 1.49.2 2.05.12.63-.1 1.91-.78 2.18-1.53.27-.76.27-1.4.19-1.54-.08-.14-.3-.22-.62-.38z"/>
+            </svg>
+        </span>
+
+    </button>
+
+
+    <!-- SUPPORT POPUP -->
+
+    <div
+        class="whatsapp-panel"
+        id="whatsappPanel"
+        aria-hidden="true"
+    >
+
+        <div class="whatsapp-panel-header">
+
+            <div class="support-avatar">
+                <svg viewBox="0 0 32 32" aria-hidden="true">
+                    <path fill="currentColor"
+                        d="M16.02 3C8.84 3 3 8.78 3 15.9c0 2.27.6 4.49 1.74 6.43L3 29l6.88-1.8a13.1 13.1 0 0 0 6.14 1.53h.01C23.2 28.73 29 22.95 29 15.84A12.8 12.8 0 0 0 16.02 3zm0 23.5c-1.9 0-3.76-.5-5.38-1.46l-.39-.23-4.08 1.07 1.09-3.96-.25-.4a10.3 10.3 0 0 1-1.6-5.62c0-5.76 4.72-10.45 10.62-10.45 2.82 0 5.47 1.08 7.47 3.05a10.3 10.3 0 0 1 3.1 7.36c0 5.75-4.72 10.44-10.58 10.44z"/>
+                </svg>
+            </div>
+
+            <div class="support-header-text">
+                <h3>coNNex Support</h3>
+                <p>
+                    <span class="live-dot"></span>
+                    We're here to help
+                </p>
+            </div>
+
+            <button
+                type="button"
+                class="support-close"
+                id="supportClose"
+                aria-label="Close support"
+            >
+                &times;
+            </button>
+
+        </div>
+
+
+        <div class="whatsapp-panel-body">
+
+            <div class="support-welcome">
+                <h4>Hello! Welcome to coNNex.</h4>
+
+                <p>
+                    Thank you for contacting us.
+                    Please select a question below
+                    and our support team will assist you.
+                </p>
+            </div>
+
+
+            <div class="support-questions">
+
+                <button type="button" class="support-question"
+                    data-question="Hello coNNex Support, I would like to know how to create an account.">
+                    How do I create an account?
+                    <span>›</span>
+                </button>
+
+                <button type="button" class="support-question"
+                    data-question="Hello coNNex Support, I need help making an investment.">
+                    How do I make an investment?
+                    <span>›</span>
+                </button>
+
+                <button type="button" class="support-question"
+                    data-question="Hello coNNex Support, I would like information about withdrawing my funds.">
+                    How can I withdraw my funds?
+                    <span>›</span>
+                </button>
+
+                <button type="button" class="support-question"
+                    data-question="Hello coNNex Support, I need help checking my investment.">
+                    How do I check my investment?
+                    <span>›</span>
+                </button>
+
+                <button type="button" class="support-question"
+                    data-question="Hello coNNex Support, I need help with my account.">
+                    I need help with my account.
+                    <span>›</span>
+                </button>
+
+            </div>
+
+            <p class="support-footer">
+                You'll continue this conversation on WhatsApp.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+   </div>
+
+ 
+
+<script src="./dashbord.js"></script>
 </body>
 </html>
