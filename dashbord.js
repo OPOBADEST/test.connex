@@ -1027,6 +1027,410 @@ withdrawOptions.forEach(button => {
 
 
 
+/* =================================
+   coNNex SETTINGS JAVASCRIPT
+================================= */
+
+(function () {
+
+    "use strict";
+
+
+    /* =========================
+       SETTINGS TAB SWITCHING
+    ========================= */
+
+    const settingsTabs = document.querySelectorAll(
+        ".settings-tab"
+    );
+
+    const profilePanel = document.getElementById(
+        "cnxProfilePanel"
+    );
+
+    const securityPanel = document.getElementById(
+        "cnxSecurityPanel"
+    );
+
+
+    settingsTabs.forEach(function (tab) {
+
+        tab.addEventListener("click", function () {
+
+            settingsTabs.forEach(function (item) {
+                item.classList.remove("active");
+            });
+
+            tab.classList.add("active");
+
+            const selectedTab = tab.dataset.settingsTab;
+
+            profilePanel.classList.remove("active");
+            securityPanel.classList.remove("active");
+
+            if (selectedTab === "profile") {
+                profilePanel.classList.add("active");
+            }
+
+            if (selectedTab === "security") {
+                securityPanel.classList.add("active");
+            }
+
+        });
+
+    });
+
+
+
+    /* =========================
+       MODAL OPEN / CLOSE
+    ========================= */
+
+    function openCnxModal(modalId) {
+
+        const modal = document.getElementById(modalId);
+
+        if (!modal) return;
+
+        modal.classList.add("active");
+        modal.setAttribute("aria-hidden", "false");
+
+        document.body.style.overflow = "hidden";
+
+    }
+
+
+    function closeCnxModal(modalId) {
+
+        const modal = document.getElementById(modalId);
+
+        if (!modal) return;
+
+        modal.classList.remove("active");
+        modal.setAttribute("aria-hidden", "true");
+
+        const anotherModalOpen = document.querySelector(
+            ".cnx-settings-modal.active"
+        );
+
+        if (!anotherModalOpen) {
+            document.body.style.overflow = "";
+        }
+
+    }
+
+
+
+    /* =========================
+       EDIT PROFILE MODAL
+    ========================= */
+
+    const openEditProfile = document.getElementById(
+        "cnxOpenEditProfile"
+    );
+
+    const editProfileForm = document.getElementById(
+        "cnxEditProfileForm"
+    );
+
+    const profileName = document.getElementById(
+        "cnxProfileName"
+    );
+
+    const profileUsername = document.getElementById(
+        "cnxProfileUsername"
+    );
+
+    const profileEmail = document.getElementById(
+        "cnxProfileEmail"
+    );
+
+    const accountName = document.getElementById(
+        "cnxAccountName"
+    );
+
+
+    const editFullName = document.getElementById(
+        "cnxEditFullName"
+    );
+
+    const editUsername = document.getElementById(
+        "cnxEditUsername"
+    );
+
+    const editEmail = document.getElementById(
+        "cnxEditEmail"
+    );
+
+    const emailPasswordGroup = document.getElementById(
+        "cnxEmailPasswordGroup"
+    );
+
+    const emailCurrentPassword = document.getElementById(
+        "cnxEmailCurrentPassword"
+    );
+
+
+    if (openEditProfile && editProfileForm) {
+
+        openEditProfile.addEventListener("click", function () {
+
+            editFullName.value = profileName.textContent.trim();
+
+            editUsername.value = profileUsername.textContent.trim();
+
+            editEmail.value = profileEmail.textContent.trim();
+
+            emailCurrentPassword.value = "";
+
+            emailPasswordGroup.hidden = true;
+
+            openCnxModal("cnxEditProfileModal");
+
+        });
+
+
+        /* Show password field only when email changes */
+
+        editEmail.addEventListener("input", function () {
+
+            const originalEmail = profileEmail.textContent.trim();
+
+            const emailHasChanged =
+                editEmail.value.trim().toLowerCase() !==
+                originalEmail.toLowerCase();
+
+            emailPasswordGroup.hidden = !emailHasChanged;
+
+            if (!emailHasChanged) {
+                emailCurrentPassword.value = "";
+            }
+
+        });
+
+
+        /* PROFILE FORM SUBMISSION */
+
+        editProfileForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const fullName = editFullName.value.trim();
+
+            const username = editUsername.value.trim();
+
+            const email = editEmail.value.trim();
+
+            const originalEmail = profileEmail.textContent.trim();
+
+            const emailHasChanged =
+                email.toLowerCase() !== originalEmail.toLowerCase();
+
+
+            if (!fullName || !username || !email) {
+                alert("Please complete all profile fields.");
+                return;
+            }
+
+
+            if (emailHasChanged && !emailCurrentPassword.value.trim()) {
+
+                alert(
+                    "Please enter your current password to change your email."
+                );
+
+                emailCurrentPassword.focus();
+
+                return;
+
+            }
+
+
+            /*
+              FRONT-END DEMO ONLY.
+
+              In the PHP/MySQL version:
+              - Validate the current password on the server.
+              - Check that the new email is not already registered.
+              - Send a verification link/code to the new email.
+              - Update the database only after successful verification.
+
+              Never trust JavaScript alone for password verification.
+            */
+
+            alert(
+                "Your profile form is ready. Actual profile updates will be enabled when PHP/MySQL is connected."
+            );
+
+        });
+
+    }
+
+
+
+    /* =========================
+       CHANGE PASSWORD MODAL
+    ========================= */
+
+    const openPassword = document.getElementById(
+        "cnxOpenPassword"
+    );
+
+    const changePasswordForm = document.getElementById(
+        "cnxChangePasswordForm"
+    );
+
+
+    if (openPassword) {
+
+        openPassword.addEventListener("click", function () {
+
+            if (changePasswordForm) {
+                changePasswordForm.reset();
+            }
+
+            openCnxModal("cnxPasswordModal");
+
+        });
+
+    }
+
+
+    if (changePasswordForm) {
+
+        changePasswordForm.addEventListener("submit", function (event) {
+
+            event.preventDefault();
+
+            const currentPassword = document.getElementById(
+                "cnxCurrentPassword"
+            ).value;
+
+            const newPassword = document.getElementById(
+                "cnxNewPassword"
+            ).value;
+
+            const confirmPassword = document.getElementById(
+                "cnxConfirmPassword"
+            ).value;
+
+
+            if (!currentPassword || !newPassword || !confirmPassword) {
+
+                alert("Please complete all password fields.");
+
+                return;
+
+            }
+
+
+            if (newPassword.length < 8) {
+
+                alert("Your new password must contain at least 8 characters.");
+
+                return;
+
+            }
+
+
+            if (newPassword !== confirmPassword) {
+
+                alert("Your new passwords do not match.");
+
+                return;
+
+            }
+
+
+            if (currentPassword === newPassword) {
+
+                alert("Your new password must be different from your current password.");
+
+                return;
+
+            }
+
+
+            /*
+              FRONT-END DEMO ONLY.
+
+              The PHP backend must verify the current password,
+              securely hash the new password, and update the database.
+            */
+
+            alert(
+                "Password update will be enabled when PHP/MySQL is connected."
+            );
+
+        });
+
+    }
+
+
+
+    /* =========================
+       CLOSE BUTTONS
+    ========================= */
+
+    const closeButtons = document.querySelectorAll(
+        "[data-close-modal]"
+    );
+
+
+    closeButtons.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            const modalId = button.dataset.closeModal;
+
+            closeCnxModal(modalId);
+
+        });
+
+    });
+
+
+
+    /* Close when clicking outside modal content */
+
+    document.querySelectorAll(
+        ".cnx-settings-modal"
+    ).forEach(function (modal) {
+
+        modal.addEventListener("click", function (event) {
+
+            if (event.target === modal) {
+
+                closeCnxModal(modal.id);
+
+            }
+
+        });
+
+    });
+
+
+
+    /* Close modal with Escape key */
+
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            document.querySelectorAll(
+                ".cnx-settings-modal.active"
+            ).forEach(function (modal) {
+
+                closeCnxModal(modal.id);
+
+            });
+
+        }
+
+    });
+
+
+})();
 
 
 
@@ -1038,6 +1442,500 @@ withdrawOptions.forEach(button => {
 
 
 
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    // ==================================
+    // COUNTRY LIST (193 UN MEMBERS + 2)
+    // ==================================
+
+    const countries = [
+        "Afghanistan", "Albania", "Algeria", "Andorra", "Angola",
+        "Antigua and Barbuda", "Argentina", "Armenia", "Australia", "Austria",
+        "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados",
+        "Belarus", "Belgium", "Belize", "Benin", "Bhutan",
+        "Bolivia", "Bosnia and Herzegovina", "Botswana", "Brazil", "Brunei",
+        "Bulgaria", "Burkina Faso", "Burundi", "Cabo Verde", "Cambodia",
+        "Cameroon", "Canada", "Central African Republic", "Chad", "Chile",
+        "China", "Colombia", "Comoros", "Republic of the Congo",
+        "Costa Rica", "Côte d'Ivoire", "Croatia", "Cuba", "Cyprus",
+        "Czechia", "Democratic Republic of the Congo", "Denmark", "Djibouti",
+        "Dominica", "Dominican Republic", "Ecuador", "Egypt", "El Salvador",
+        "Equatorial Guinea", "Eritrea", "Estonia", "Eswatini", "Ethiopia",
+        "Fiji", "Finland", "France", "Gabon", "Gambia", "Georgia",
+        "Germany", "Ghana", "Greece", "Grenada", "Guatemala", "Guinea",
+        "Guinea-Bissau", "Guyana", "Haiti", "Honduras", "Hungary",
+        "Iceland", "India", "Indonesia", "Iran", "Iraq", "Ireland",
+        "Israel", "Italy", "Jamaica", "Japan", "Jordan", "Kazakhstan",
+        "Kenya", "Kiribati", "Kuwait", "Kyrgyzstan", "Laos", "Latvia",
+        "Lebanon", "Lesotho", "Liberia", "Libya", "Liechtenstein",
+        "Lithuania", "Luxembourg", "Madagascar", "Malawi", "Malaysia",
+        "Maldives", "Mali", "Malta", "Marshall Islands", "Mauritania",
+        "Mauritius", "Mexico", "Micronesia", "Moldova", "Monaco",
+        "Mongolia", "Montenegro", "Morocco", "Mozambique", "Myanmar",
+        "Namibia", "Nauru", "Nepal", "Netherlands", "New Zealand",
+        "Nicaragua", "Niger", "Nigeria", "North Korea", "North Macedonia",
+        "Norway", "Oman", "Pakistan", "Palau", "Palestine", "Panama",
+        "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Poland",
+        "Portugal", "Qatar", "Romania", "Russia", "Rwanda",
+        "Saint Kitts and Nevis", "Saint Lucia",
+        "Saint Vincent and the Grenadines", "Samoa", "San Marino",
+        "Sao Tome and Principe", "Saudi Arabia", "Senegal", "Serbia",
+        "Seychelles", "Sierra Leone", "Singapore", "Slovakia", "Slovenia",
+        "Solomon Islands", "Somalia", "South Africa", "South Korea",
+        "South Sudan", "Spain", "Sri Lanka", "Sudan", "Suriname",
+        "Sweden", "Switzerland", "Syria", "Tajikistan", "Tanzania",
+        "Thailand", "Timor-Leste", "Togo", "Tonga",
+        "Trinidad and Tobago", "Tunisia", "Turkey", "Turkmenistan",
+        "Tuvalu", "Uganda", "Ukraine", "United Arab Emirates",
+        "United Kingdom", "United States", "Uruguay", "Uzbekistan",
+        "Vanuatu", "Vatican City", "Venezuela", "Vietnam", "Yemen",
+        "Zambia", "Zimbabwe"
+    ];
+
+    // ==================================
+    // SEARCHABLE COUNTRY DROPDOWN
+    // ==================================
+
+    const countrySearch = document.getElementById("countrySearch");
+    const countryDropdown = document.getElementById("countryDropdown");
+    const countryInput = document.getElementById("country");
+
+    if (countrySearch && countryDropdown && countryInput) {
+
+        function showCountries(list) {
+            countryDropdown.innerHTML = "";
+
+            if (list.length === 0) {
+                countryDropdown.innerHTML =
+                    '<div class="country-empty">No country found</div>';
+                countryDropdown.style.display = "block";
+                return;
+            }
+
+            list.forEach(country => {
+                const option = document.createElement("div");
+
+                option.className = "country-option";
+                option.textContent = country;
+
+                option.addEventListener("click", function () {
+                    countrySearch.value = country;
+                    countryInput.value = country;
+                    countryDropdown.style.display = "none";
+                });
+
+                countryDropdown.appendChild(option);
+            });
+
+            countryDropdown.style.display = "block";
+        }
+
+        countrySearch.addEventListener("focus", function () {
+            showCountries(countries);
+        });
+
+        countrySearch.addEventListener("input", function () {
+            const searchValue = this.value.toLowerCase().trim();
+
+            // Clear previously selected country when user edits the search
+            countryInput.value = "";
+
+            const filteredCountries = countries.filter(country =>
+                country.toLowerCase().includes(searchValue)
+            );
+
+            showCountries(filteredCountries);
+        });
+
+        document.addEventListener("click", function (event) {
+            if (
+                !countrySearch.contains(event.target) &&
+                !countryDropdown.contains(event.target)
+            ) {
+                countryDropdown.style.display = "none";
+            }
+        });
+    }
+
+    // ==================================
+    // FILE UPLOAD VALIDATION
+    // ==================================
+
+    function handleKycFile(inputId, nameId, allowedTypes) {
+        const fileInput = document.getElementById(inputId);
+        const fileName = document.getElementById(nameId);
+
+        if (!fileInput || !fileName) return;
+
+        fileInput.addEventListener("change", function () {
+
+            const file = this.files[0];
+
+            if (!file) {
+                fileName.textContent = "No file selected";
+                return;
+            }
+
+            const maxSize = 5 * 1024 * 1024; // 5MB
+
+            if (!allowedTypes.includes(file.type)) {
+                alert("Invalid file format. Please select an allowed file.");
+                this.value = "";
+                fileName.textContent = "No file selected";
+                return;
+            }
+
+            if (file.size > maxSize) {
+                alert("File is too large. Maximum file size is 5MB.");
+                this.value = "";
+                fileName.textContent = "No file selected";
+                return;
+            }
+
+            fileName.textContent = file.name;
+        });
+    }
+
+    // Front of ID: JPG, PNG, PDF
+    handleKycFile(
+        "idFront",
+        "frontName",
+        ["image/jpeg", "image/png", "application/pdf"]
+    );
+
+    // Back of ID: JPG, PNG, PDF
+    handleKycFile(
+        "idBack",
+        "backName",
+        ["image/jpeg", "image/png", "application/pdf"]
+    );
+
+    // Selfie: JPG, PNG only
+    handleKycFile(
+        "idSelfie",
+        "selfieName",
+        ["image/jpeg", "image/png"]
+    );
+
+    // ==================================
+    // KYC FORM SUBMISSION
+    // ==================================
+
+    const kycForm = document.getElementById("kycForm");
+
+    if (kycForm) {
+        kycForm.addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            const front = document.getElementById("idFront");
+            const back = document.getElementById("idBack");
+            const selfie = document.getElementById("idSelfie");
+            const agreement = document.getElementById("kycAgreement");
+
+            if (!countryInput || !countryInput.value) {
+                alert("Please select your country.");
+                countrySearch?.focus();
+                return;
+            }
+
+            if (!front?.files.length) {
+                alert("Please upload the front of your ID.");
+                return;
+            }
+
+            if (!back?.files.length) {
+                alert("Please upload the back of your ID.");
+                return;
+            }
+
+            if (!selfie?.files.length) {
+                alert("Please upload your selfie holding your ID.");
+                return;
+            }
+
+            if (!agreement?.checked) {
+                alert("Please confirm the declaration before submitting.");
+                return;
+            }
+
+            alert("Your KYC information has been validated successfully!");
+
+            // Front-end demo only.
+            // Connect this form to your PHP/MySQL backend later.
+        });
+    }
+
+});
+
+
+
+
+
+
+
+
+
+// ==================================
+// REFERRAL LINK
+// ==================================
+
+const referralCode = "CNX10025"; // Demo referral code
+
+const referralLinkInput = document.getElementById("referralLink");
+const copyReferralButton = document.getElementById("copyReferralLink");
+const referralCopyMessage = document.getElementById("referralCopyMessage");
+
+if (referralLinkInput) {
+
+    const referralLink =
+        `${window.location.origin}/signup.html?ref=${referralCode}`;
+
+    referralLinkInput.value = referralLink;
+}
+
+if (copyReferralButton && referralLinkInput) {
+
+    copyReferralButton.addEventListener("click", async function () {
+
+        try {
+            await navigator.clipboard.writeText(referralLinkInput.value);
+
+            referralCopyMessage.textContent = "Referral link copied successfully!";
+
+            copyReferralButton.innerHTML =
+                '<i class="fas fa-check"></i> Copied!';
+
+            setTimeout(() => {
+                copyReferralButton.innerHTML =
+                    '<i class="fas fa-copy"></i> Copy Link';
+
+                referralCopyMessage.textContent = "";
+            }, 2500);
+
+        } catch (error) {
+            referralLinkInput.select();
+            referralCopyMessage.textContent =
+                "Please copy the selected link manually.";
+        }
+
+    });
+}
+
+
+
+
+
+
+
+(function () {
+
+    const transactions = [
+        {
+            id: "CNX-TXN-00125",
+            type: "credit",
+            description: "Deposit received into your account",
+            amount: 500,
+            method: "USDT TRC20",
+            status: "successful",
+            date: "20 Nov 2026",
+            time: "10:45 AM"
+        },
+        {
+            id: "CNX-TXN-00124",
+            type: "investment",
+            description: "Premium investment plan activated",
+            amount: 3000,
+            method: "Account Balance",
+            status: "successful",
+            date: "19 Nov 2026",
+            time: "02:30 PM"
+        },
+        {
+            id: "CNX-TXN-00123",
+            type: "debit",
+            description: "Withdrawal request submitted",
+            amount: 150,
+            method: "USDT TRC20",
+            status: "pending",
+            date: "18 Nov 2026",
+            time: "11:20 AM"
+        },
+        {
+            id: "CNX-TXN-00122",
+            type: "credit",
+            description: "Deposit payment confirmation",
+            amount: 200,
+            method: "Bitcoin",
+            status: "failed",
+            date: "17 Nov 2026",
+            time: "09:15 AM"
+        }
+    ];
+
+    const list = document.getElementById("transactionList");
+    const search = document.getElementById("transactionSearch");
+    const filter = document.getElementById("transactionFilter");
+    const empty = document.getElementById("transactionEmpty");
+
+    const modal = document.getElementById("transactionModal");
+
+    if (!list || !modal) return;
+
+    function formatAmount(transaction) {
+        const sign = transaction.type === "credit" ? "+" : "-";
+        return sign + "$" + transaction.amount.toLocaleString("en-US", {
+            minimumFractionDigits: 2
+        });
+    }
+
+    function renderTransactions() {
+
+        const searchText = search.value.toLowerCase().trim();
+        const selectedFilter = filter.value;
+
+        const filtered = transactions.filter(transaction => {
+
+            const matchesType =
+                selectedFilter === "all" ||
+                transaction.type === selectedFilter;
+
+            const matchesSearch =
+                transaction.type.includes(searchText) ||
+                transaction.description.toLowerCase().includes(searchText) ||
+                transaction.id.toLowerCase().includes(searchText) ||
+                transaction.status.includes(searchText);
+
+            return matchesType && matchesSearch;
+        });
+
+        list.innerHTML = "";
+
+        empty.style.display = filtered.length ? "none" : "block";
+
+        filtered.forEach(transaction => {
+
+            const typeName =
+                transaction.type.charAt(0).toUpperCase() +
+                transaction.type.slice(1);
+
+            const icon =
+                transaction.type === "credit" ? "fa-arrow-down" :
+                transaction.type === "debit" ? "fa-arrow-up" :
+                "fa-chart-line";
+
+            const statusClass =
+                "status-" + transaction.status;
+
+            const statusName =
+                transaction.status.charAt(0).toUpperCase() +
+                transaction.status.slice(1);
+
+            const amountClass =
+                transaction.type === "credit"
+                    ? "amount-credit"
+                    : "amount-debit";
+
+            const item = document.createElement("div");
+
+            item.className = "transaction-item";
+
+            item.innerHTML = `
+                <div class="transaction-left">
+
+                    <div class="transaction-icon">
+                        <i class="fas ${icon}"></i>
+                    </div>
+
+                    <div class="transaction-info">
+                        <h4>${typeName}</h4>
+                        <p>${transaction.description}</p>
+                    </div>
+
+                </div>
+
+                <div class="transaction-right">
+
+                    <span class="transaction-status ${statusClass}">
+                        ${statusName}
+                    </span>
+
+                    <strong class="${amountClass}">
+                        ${formatAmount(transaction)}
+                    </strong>
+
+                </div>
+            `;
+
+            item.addEventListener("click", () => {
+                showTransactionDetails(transaction);
+            });
+
+            list.appendChild(item);
+        });
+    }
+
+    function showTransactionDetails(transaction) {
+
+        const typeName =
+            transaction.type.charAt(0).toUpperCase() +
+            transaction.type.slice(1);
+
+        const statusName =
+            transaction.status.charAt(0).toUpperCase() +
+            transaction.status.slice(1);
+
+        document.getElementById("detailType").textContent = typeName;
+        document.getElementById("detailAmount").textContent =
+            formatAmount(transaction);
+
+        document.getElementById("detailStatus").textContent = statusName;
+        document.getElementById("detailStatus").className =
+            "transaction-status status-" + transaction.status;
+
+        document.getElementById("detailId").textContent = transaction.id;
+        document.getElementById("detailTransactionType").textContent = typeName;
+        document.getElementById("detailDescription").textContent =
+            transaction.description;
+        document.getElementById("detailMethod").textContent =
+            transaction.method;
+        document.getElementById("detailDate").textContent = transaction.date;
+        document.getElementById("detailTime").textContent = transaction.time;
+        document.getElementById("detailFullStatus").textContent = statusName;
+
+        modal.classList.add("active");
+    }
+
+    document.getElementById("closeTransactionModal")
+        .addEventListener("click", () => {
+            modal.classList.remove("active");
+        });
+
+    modal.addEventListener("click", event => {
+        if (event.target === modal) {
+            modal.classList.remove("active");
+        }
+    });
+
+    document.getElementById("copyTransactionId")
+        .addEventListener("click", async () => {
+
+            const id = document.getElementById("detailId").textContent;
+
+            try {
+                await navigator.clipboard.writeText(id);
+                alert("Transaction ID copied!");
+            } catch (error) {
+                alert("Unable to copy. Please copy the ID manually.");
+            }
+        });
+
+    search.addEventListener("input", renderTransactions);
+    filter.addEventListener("change", renderTransactions);
+
+    renderTransactions();
+
+})();
 
 
 
@@ -1302,5 +2200,11 @@ window.addEventListener("resize", () => {
     whatsappSupport.style.bottom = "auto";
 
 });
+
+
+
+
+
+
 
 

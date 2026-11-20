@@ -928,18 +928,823 @@
     </section>
 
     <section id="transactions" class="content-section">
+
+    <div class="transaction-page">
+
+        <div class="transaction-header">
+            <h2>Transaction History</h2>
+            <p>View and track all your account transactions.</p>
+        </div>
+
+        <!-- Search -->
+        <div class="transaction-toolbar">
+            <input
+                type="search"
+                id="transactionSearch"
+                placeholder="Search transactions..."
+            >
+
+            <select id="transactionFilter">
+                <option value="all">All Transactions</option>
+                <option value="credit">Credit</option>
+                <option value="debit">Debit</option>
+                <option value="investment">Investment</option>
+            </select>
+        </div>
+
+        <!-- Transaction List -->
+        <div class="transaction-list" id="transactionList"></div>
+
+        <p class="transaction-empty" id="transactionEmpty">
+            No transactions found.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- Transaction Details Modal -->
+<div class="transaction-modal" id="transactionModal">
+
+    <div class="transaction-modal-content">
+
+        <div class="transaction-modal-header">
+            <h3>Transaction Details</h3>
+            <button type="button" id="closeTransactionModal">&times;</button>
+        </div>
+
+        <div class="transaction-detail-type">
+            <span id="detailType">Credit</span>
+            <h2 id="detailAmount">$500.00</h2>
+            <span id="detailStatus" class="transaction-status">Successful</span>
+        </div>
+
+        <div class="transaction-detail-list">
+
+            <div>
+                <span>Transaction ID</span>
+                <strong id="detailId">CNX-TXN-00125</strong>
+            </div>
+
+            <div>
+                <span>Transaction Type</span>
+                <strong id="detailTransactionType">Credit</strong>
+            </div>
+
+            <div>
+                <span>Description</span>
+                <strong id="detailDescription">Deposit received</strong>
+            </div>
+
+            <div>
+                <span>Payment Method</span>
+                <strong id="detailMethod">USDT TRC20</strong>
+            </div>
+
+            <div>
+                <span>Date</span>
+                <strong id="detailDate">20 Nov 2026</strong>
+            </div>
+
+            <div>
+                <span>Time</span>
+                <strong id="detailTime">10:45 AM</strong>
+            </div>
+
+            <div>
+                <span>Status</span>
+                <strong id="detailFullStatus">Successful</strong>
+            </div>
+
+        </div>
+
+        <button type="button" id="copyTransactionId">
+            <i class="fas fa-copy"></i> Copy Transaction ID
+        </button>
+
+    </div>
+
+</div>
         
     </section>
 
     <section id="referrals" class="content-section">
+
+
+    <div class="referral-page">
+
+        <div class="referral-header">
+            <div>
+                <span class="referral-eyebrow">coNNex REFERRAL PROGRAM</span>
+                <h2>Invite Friends & Earn Rewards</h2>
+                <p>
+                    Share your referral link with friends. When they sign up
+                    using your link, you'll receive referral credit.
+                </p>
+            </div>
+        </div>
+
+        <!-- Referral Statistics -->
+        <div class="referral-stats">
+
+            <div class="referral-stat-card">
+                <div class="referral-stat-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+
+                <div>
+                    <span>Total Referrals</span>
+                    <h3 id="totalReferrals">12</h3>
+                    <small>People invited successfully</small>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Referral Link -->
+        <div class="referral-link-card">
+
+            <div class="referral-card-heading">
+                <div class="referral-link-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+
+                <div>
+                    <h3>Share Your Referral Link</h3>
+                    <p>Invite new friends using your unique referral link.</p>
+                </div>
+            </div>
+
+            <label for="referralLink">Your Personal Referral Link</label>
+
+            <div class="referral-input-group">
+                <input
+                    type="text"
+                    id="referralLink"
+                    readonly
+                    value=""
+                >
+
+                <button type="button" id="copyReferralLink">
+                    <i class="fas fa-copy"></i>
+                    Copy Link
+                </button>
+            </div>
+
+            <p class="referral-copy-message" id="referralCopyMessage"></p>
+
+        </div>
+
+        <!-- How It Works -->
+        <div class="referral-steps">
+
+            <h3>How It Works</h3>
+
+            <div class="referral-step">
+                <span>01</span>
+                <div>
+                    <h4>Share Your Link</h4>
+                    <p>Copy your unique referral link and share it with friends.</p>
+                </div>
+            </div>
+
+            <div class="referral-step">
+                <span>02</span>
+                <div>
+                    <h4>Friends Sign Up</h4>
+                    <p>Your friends register on coNNex using your referral link.</p>
+                </div>
+            </div>
+
+            <div class="referral-step">
+                <span>03</span>
+                <div>
+                    <h4>Earn Referral Rewards</h4>
+                    <p>Your successful referrals are counted in your referral dashboard.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
         
     </section>
 
     <section id="kyc" class="content-section">
+
+
+        <!-- KYC VERIFICATION SECTION -->
+
+<!-- <section class="content-section" id="kyc"> -->
+
+    <div class="kyc-page">
+
+        <div class="kyc-header">
+            <div>
+                <span class="kyc-label">ACCOUNT SECURITY</span>
+                <h2>KYC Verification</h2>
+                <p class="p">Verify your identity to unlock your account features.</p>
+                <p class="already-verified">your account is already verified</p>
+            </div>
+
+            <div class="kyc-status">
+                <i class="fa-solid fa-shield-halved"></i>
+                Not Verified
+            </div>
+
+            <div class="kyc-status2">
+                <i class="fa-solid fa-shield-halved"></i>
+                Verified
+            </div>
+        </div>
+
+
+        <!-- INFORMATION NOTICE -->
+
+        <div class="kyc-notice">
+            <i class="fa-solid fa-circle-info"></i>
+
+            <div>
+                <strong>Identity Verification Required</strong>
+                <p>
+                    Please provide accurate information and upload
+                    clear images of your valid identity document.
+                </p>
+            </div>
+        </div>
+
+
+        <form id="kycForm">
+          
+
+                               <!-- Document Type -->
+<div class="kyc-form-group">
+    <label for="documentType" class="kyc-label">
+        Document Type
+    </label>
+
+    <select id="documentType" name="documentType" required>
+        <option value="" disabled selected>Select ID type</option>
+        <option value="national_id">National ID Card</option>
+        <option value="passport">International Passport</option>
+        <option value="drivers_license">Driver's License</option>
+    </select>
+</div>
+
+            <!-- COUNTRY -->
+
+            <div class="kyc-form-group">
+
+                <label for="countrySearch">
+                    Select Your Country
+                </label>
+
+                <div class="country-select-wrapper">
+
+                    <input
+                        type="text"
+                        id="countrySearch"
+                        placeholder="Search or select your country..."
+                        autocomplete="off"
+                        required
+                    >
+
+                    <i class="fa-solid fa-chevron-down country-arrow"></i>
+
+                    <div class="country-dropdown" id="countryDropdown"></div>
+
+                    <input type="hidden" id="country" name="country">
+
+                </div>
+
+            </div>
+
+
+            <!-- FRONT PAGE -->
+
+            <div class="kyc-form-group">
+
+                <label>Upload Front Page of ID</label>
+
+                <label class="kyc-upload-box" for="idFront">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    <strong>Upload Front Page</strong>
+
+                    <span>Click to select your document</span>
+
+                    <small>JPG, PNG or PDF - Maximum 5MB</small>
+
+                    <span class="file-name" id="frontName">
+                        No file selected
+                    </span>
+
+                </label>
+
+                <input
+                    type="file"
+                    id="idFront"
+                    accept=".jpg,.jpeg,.png,.pdf"
+                    required
+                    hidden
+                >
+
+            </div>
+
+
+            <!-- BACK PAGE -->
+
+            <div class="kyc-form-group">
+
+                <label>Upload Back Page of ID</label>
+
+                <label class="kyc-upload-box" for="idBack">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    <strong>Upload Back Page</strong>
+
+                    <span>Click to select your document</span>
+
+                    <small>JPG, PNG or PDF - Maximum 5MB</small>
+
+                    <span class="file-name" id="backName">
+                        No file selected
+                    </span>
+
+                </label>
+
+                <input
+                    type="file"
+                    id="idBack"
+                    accept=".jpg,.jpeg,.png,.pdf"
+                    required
+                    hidden
+                >
+
+            </div>
+
+
+            <!-- SELFIE -->
+
+            <div class="kyc-form-group">
+
+                <label>Upload Selfie Holding Your ID</label>
+
+                <label class="kyc-upload-box" for="idSelfie">
+
+                    <i class="fa-solid fa-camera"></i>
+
+                    <strong>Upload Your Selfie</strong>
+
+                    <span>Upload a clear photo holding your ID</span>
+
+                    <small>JPG or PNG - Maximum 5MB</small>
+
+                    <span class="file-name" id="selfieName">
+                        No file selected
+                    </span>
+
+                </label>
+
+                <input
+                    type="file"
+                    id="idSelfie"
+                    accept=".jpg,.jpeg,.png"
+                    required
+                    hidden
+                >
+
+            </div>
+
+
+            <!-- DECLARATION -->
+
+            <div class="kyc-agreement">
+
+                <input type="checkbox" id="kycAgreement" required>
+
+                <label for="kycAgreement">
+                    I confirm that the information and documents
+                    submitted are genuine and belong to me.
+                </label>
+
+            </div>
+
+
+            <!-- SUBMIT -->
+
+            <button type="submit" class="kyc-submit">
+                Submit for Verification
+                <i class="fa-solid fa-arrow-right"></i>
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
      
     </section>
 
     <section id="settings" class="content-section">
+
+        <!-- =========================
+     coNNex SETTINGS SECTION
+========================= -->
+
+<section class="page-section" id="settings">
+
+    <div class="settings-container">
+
+        <!-- ACCOUNT OVERVIEW -->
+        <div class="settings-account-overview">
+
+            <div class="settings-account-info">
+                <div class="settings-avatar">
+                    <i class="fas fa-user"></i>
+                </div>
+
+                <div>
+                    <h3 id="cnxAccountName">John Doe</h3>
+                    <p>@johnd001</p>
+                </div>
+            </div>
+
+            <div class="settings-account-details">
+
+                <div class="settings-detail">
+                    <span>Account UID</span>
+                    <strong id="cnxAccountUID">CNX001</strong>
+                </div>
+
+                <div class="settings-detail">
+                    <span>KYC Status</span>
+                    <strong class="kyc-status not-verified"
+                            id="cnxKycStatus">
+                        Not Verified
+                    </strong>
+
+                    <strong class="kyc-status verified"
+                            id="cnxKycStatus">
+                        Verified
+                    </strong>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- SETTINGS TABS -->
+        <div class="settings-tabs">
+
+            <button class="settings-tab active"
+                    type="button"
+                    data-settings-tab="profile">
+
+                <i class="fas fa-user"></i>
+                Profile
+
+            </button>
+
+            <button class="settings-tab"
+                    type="button"
+                    data-settings-tab="security">
+
+                <i class="fas fa-shield-alt"></i>
+                Security
+
+            </button>
+
+        </div>
+
+
+        <!-- =========================
+             PROFILE TAB
+        ========================== -->
+
+        <div class="settings-panel active"
+             id="cnxProfilePanel">
+
+            <div class="settings-card">
+
+                <div class="settings-card-heading">
+                    <div>
+                        <h3>Personal Information</h3>
+                        <p>View your registered account information.</p>
+                    </div>
+
+                    <button type="button"
+                            class="settings-edit-btn"
+                            id="cnxOpenEditProfile">
+
+                        <i class="fas fa-pen"></i>
+                        Edit Profile
+
+                    </button>
+                </div>
+
+
+                <div class="settings-profile-fields">
+
+                    <div class="settings-field">
+                        <label>Full Name</label>
+                        <div class="settings-field-value"
+                             id="cnxProfileName">
+                            John Doe
+                        </div>
+                    </div>
+
+                    <div class="settings-field">
+                        <label>Username</label>
+                        <div class="settings-field-value"
+                             id="cnxProfileUsername">
+                            johndoe
+                        </div>
+                    </div>
+
+                    <div class="settings-field">
+                        <label>Email Address</label>
+                        <div class="settings-field-value"
+                             id="cnxProfileEmail">
+                            johndoe@example.com
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =========================
+             SECURITY TAB
+        ========================== -->
+
+        <div class="settings-panel"
+             id="cnxSecurityPanel">
+
+            <div class="settings-card">
+
+                <div class="settings-card-heading">
+                    <div>
+                        <h3>Account Security</h3>
+                        <p>Manage your password and account protection.</p>
+                    </div>
+                </div>
+
+
+                <div class="settings-security-item">
+
+                    <div class="settings-security-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+
+                    <div class="settings-security-info">
+                        <h4>Change Password</h4>
+                        <p>
+                            Update your account password regularly
+                            to keep your account secure.
+                        </p>
+                    </div>
+
+                    <button type="button"
+                            class="settings-change-btn"
+                            id="cnxOpenPassword">
+
+                        Change
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     EDIT PROFILE MODAL
+     Place outside the main container
+================================== -->
+
+<div class="cnx-settings-modal"
+     id="cnxEditProfileModal"
+     aria-hidden="true">
+
+    <div class="cnx-settings-modal-content"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="cnxEditProfileTitle">
+
+        <div class="cnx-modal-header">
+
+            <div>
+                <h3 id="cnxEditProfileTitle">Edit Profile</h3>
+                <p>Update your personal information.</p>
+            </div>
+
+            <button type="button"
+                    class="cnx-modal-close"
+                    data-close-modal="cnxEditProfileModal"
+                    aria-label="Close">
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+        <form id="cnxEditProfileForm">
+
+            <div class="cnx-modal-form-group">
+                <label for="cnxEditFullName">Full Name</label>
+
+                <input type="text"
+                       id="cnxEditFullName"
+                       required>
+            </div>
+
+
+            <div class="cnx-modal-form-group">
+                <label for="cnxEditUsername">Username</label>
+
+                <input type="text"
+                       id="cnxEditUsername"
+                       required>
+            </div>
+
+
+            <div class="cnx-modal-form-group">
+                <label for="cnxEditEmail">Email Address</label>
+
+                <input type="email"
+                       id="cnxEditEmail"
+                       required>
+            </div>
+
+
+            <!-- Only displayed when email is changed -->
+            <div class="cnx-modal-form-group"
+                 id="cnxEmailPasswordGroup"
+                 hidden>
+
+                <label for="cnxEmailCurrentPassword">
+                    Current Password
+                </label>
+
+                <input type="password"
+                       id="cnxEmailCurrentPassword"
+                       autocomplete="current-password"
+                       placeholder="Enter your current password">
+
+                <small>
+                    Your current password is required to change
+                    your email address.
+                </small>
+
+            </div>
+
+
+            <div class="cnx-modal-actions">
+
+                <button type="button"
+                        class="cnx-cancel-btn"
+                        data-close-modal="cnxEditProfileModal">
+
+                    Cancel
+
+                </button>
+
+                <button type="submit"
+                        class="cnx-save-btn">
+
+                    Save Changes
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =================================
+     CHANGE PASSWORD MODAL
+================================== -->
+
+<div class="cnx-settings-modal"
+     id="cnxPasswordModal"
+     aria-hidden="true">
+
+    <div class="cnx-settings-modal-content"
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="cnxPasswordTitle">
+
+        <div class="cnx-modal-header">
+
+            <div>
+                <h3 id="cnxPasswordTitle">Change Password</h3>
+                <p>Choose a strong password for your account.</p>
+            </div>
+
+            <button type="button"
+                    class="cnx-modal-close"
+                    data-close-modal="cnxPasswordModal"
+                    aria-label="Close">
+
+                &times;
+
+            </button>
+
+        </div>
+
+
+        <form id="cnxChangePasswordForm">
+
+            <div class="cnx-modal-form-group">
+                <label for="cnxCurrentPassword">
+                    Current Password
+                </label>
+
+                <input type="password"
+                       id="cnxCurrentPassword"
+                       autocomplete="current-password"
+                       placeholder="Enter current password"
+                       required>
+            </div>
+
+
+            <div class="cnx-modal-form-group">
+                <label for="cnxNewPassword">
+                    New Password
+                </label>
+
+                <input type="password"
+                       id="cnxNewPassword"
+                       autocomplete="new-password"
+                       placeholder="Enter new password"
+                       required>
+            </div>
+
+
+            <div class="cnx-modal-form-group">
+                <label for="cnxConfirmPassword">
+                    Confirm New Password
+                </label>
+
+                <input type="password"
+                       id="cnxConfirmPassword"
+                       autocomplete="new-password"
+                       placeholder="Confirm new password"
+                       required>
+            </div>
+
+
+            <div class="cnx-forgot-password">
+                <a href="forgot-password.html">
+                    Forgot Password?
+                </a>
+            </div>
+
+
+            <div class="cnx-modal-actions">
+
+                <button type="button"
+                        class="cnx-cancel-btn"
+                        data-close-modal="cnxPasswordModal">
+
+                    Cancel
+
+                </button>
+
+                <button type="submit"
+                        class="cnx-save-btn">
+
+                    Update Password
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
         
     </section>
 
