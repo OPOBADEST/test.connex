@@ -4030,3 +4030,240 @@ body {
         padding: 17px;
     }
 }
+
+
+
+
+
+
+/* ==================================
+   RECENT ACTIVITY
+================================== */
+
+.recent-activity-card {
+    width: 100%;
+    background: #0d1729;
+    border: 1px solid #1b2b42;
+    border-radius: 12px;
+    padding: 22px;
+    margin-top: 25px;
+    color: #ffffff;
+}
+
+.recent-activity-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.recent-activity-header h3 {
+    font-size: 17px;
+    margin-bottom: 6px;
+}
+
+.recent-activity-header p {
+    font-size: 12px;
+    color: #8b9bb4;
+    line-height: 1.5;
+}
+
+.recent-activity-count {
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+    padding: 7px 11px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.recent-activity-list {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Individual Activity */
+
+.recent-activity-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #1b2b42;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.recent-activity-item:first-child {
+    padding-top: 5px;
+}
+
+.recent-activity-item:hover {
+    background: #102039;
+}
+
+.recent-activity-left {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-width: 0;
+}
+
+.recent-activity-icon {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: rgba(0, 212, 255, 0.1);
+    color: #00d4ff;
+    font-size: 15px;
+}
+
+.recent-activity-info {
+    min-width: 0;
+}
+
+.recent-activity-info h4 {
+    font-size: 13px;
+    margin-bottom: 5px;
+}
+
+.recent-activity-info p {
+    font-size: 11px;
+    color: #8b9bb4;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 260px;
+    margin-bottom: 5px;
+}
+
+.recent-activity-info small {
+    color: #71819a;
+    font-size: 10px;
+}
+
+.recent-activity-right {
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.recent-activity-status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.recent-status-successful {
+    color: #20c997;
+    background: rgba(32, 201, 151, 0.12);
+}
+
+.recent-status-pending {
+    color: #f0b94b;
+    background: rgba(240, 185, 75, 0.12);
+}
+
+.recent-status-failed {
+    color: #ff6262;
+    background: rgba(255, 98, 98, 0.12);
+}
+
+.recent-activity-amount {
+    display: block;
+    margin-top: 7px;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.recent-amount-credit,
+.recent-amount-profit {
+    color: #20c997;
+}
+
+.recent-amount-debit,
+.recent-amount-investment {
+    color: #ffffff;
+}
+
+/* Empty State */
+
+.recent-activity-empty {
+    display: none;
+    color: #8191a9;
+    text-align: center;
+    font-size: 12px;
+    padding: 25px 10px;
+}
+
+/* Footer Link */
+
+.recent-activity-footer {
+    text-align: center;
+    padding-top: 18px;
+    margin-top: 15px;
+    border-top: 1px solid #1b2b42;
+}
+
+.recent-activity-footer a {
+    color: #00d4ff;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.recent-activity-footer a:hover {
+    color: #ffffff;
+}
+
+.recent-activity-footer i {
+    margin-left: 5px;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .recent-activity-card {
+        padding: 16px;
+    }
+
+    .recent-activity-header h3 {
+        font-size: 15px;
+    }
+
+    .recent-activity-item {
+        gap: 8px;
+    }
+
+    .recent-activity-left {
+        gap: 9px;
+    }
+
+    .recent-activity-icon {
+        width: 35px;
+        height: 35px;
+        font-size: 13px;
+    }
+
+    .recent-activity-info p {
+        max-width: 145px;
+    }
+
+    .recent-activity-amount {
+        font-size: 12px;
+    }
+
+    .recent-activity-footer a {
+        font-size: 11px;
+    }
+}

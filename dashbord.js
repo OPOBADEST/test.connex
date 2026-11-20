@@ -1942,6 +1942,248 @@ if (copyReferralButton && referralLinkInput) {
 
 
 
+// ==========================================
+// coNNex RECENT ACTIVITY
+// ==========================================
+
+(function () {
+
+    // Demo activity data
+    // Newest activity must always come first.
+
+    let recentActivities = [
+
+        {
+            id: "CNX-TXN-00125",
+            type: "credit",
+            title: "Deposit",
+            description: "USDT TRC20 deposit received",
+            amount: 500,
+            status: "successful",
+            date: "20 Nov 2026",
+            time: "10:45 AM"
+        },
+
+        {
+            id: "CNX-TXN-00124",
+            type: "investment",
+            title: "Investment",
+            description: "Premium investment plan activated",
+            amount: 3000,
+            status: "successful",
+            date: "20 Nov 2026",
+            time: "09:20 AM"
+        },
+
+        {
+            id: "CNX-TXN-00123",
+            type: "debit",
+            title: "Withdrawal",
+            description: "Withdrawal request submitted",
+            amount: 150,
+            status: "pending",
+            date: "19 Nov 2026",
+            time: "04:30 PM"
+        },
+
+        {
+            id: "CNX-TXN-00122",
+            type: "profit",
+            title: "Profit",
+            description: "Investment profit credited",
+            amount: 45,
+            status: "successful",
+            date: "19 Nov 2026",
+            time: "01:15 PM"
+        },
+
+        {
+            id: "CNX-TXN-00121",
+            type: "credit",
+            title: "Deposit",
+            description: "Bitcoin deposit confirmation",
+            amount: 200,
+            status: "failed",
+            date: "18 Nov 2026",
+            time: "11:20 AM"
+        },
+
+        {
+            id: "CNX-TXN-00120",
+            type: "investment",
+            title: "Investment",
+            description: "Basic investment plan activated",
+            amount: 100,
+            status: "successful",
+            date: "17 Nov 2026",
+            time: "08:45 AM"
+        }
+
+    ];
+
+    const activityList =
+        document.getElementById("recentActivityList");
+
+    const emptyMessage =
+        document.getElementById("recentActivityEmpty");
+
+    const historyLink =
+        document.getElementById("goToTransactionHistory");
+
+    if (!activityList) return;
+
+
+    // Format activity amount
+    function formatActivityAmount(activity) {
+
+        let sign = "";
+
+        if (
+            activity.type === "credit" ||
+            activity.type === "profit"
+        ) {
+            sign = "+";
+        } else if (
+            activity.type === "debit"
+        ) {
+            sign = "-";
+        }
+
+        return sign + "$" + activity.amount.toLocaleString("en-US", {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2
+        });
+    }
+
+
+    // Get activity icon
+    function getActivityIcon(type) {
+
+        const icons = {
+            credit: "fa-arrow-down",
+            debit: "fa-arrow-up",
+            investment: "fa-chart-line",
+            profit: "fa-coins",
+            referral: "fa-gift"
+        };
+
+        return icons[type] || "fa-exchange-alt";
+    }
+
+
+    // Render recent activities
+    function renderRecentActivities() {
+
+        activityList.innerHTML = "";
+
+        const latestSix = recentActivities.slice(0, 6);
+
+        emptyMessage.style.display =
+            latestSix.length === 0 ? "block" : "none";
+
+        latestSix.forEach(activity => {
+
+            const statusClass =
+                "recent-status-" + activity.status;
+
+            const amountClass =
+                "recent-amount-" + activity.type;
+
+            const statusName =
+                activity.status.charAt(0).toUpperCase() +
+                activity.status.slice(1);
+
+            const item = document.createElement("div");
+
+            item.className = "recent-activity-item";
+
+            item.innerHTML = `
+                <div class="recent-activity-left">
+
+                    <div class="recent-activity-icon">
+                        <i class="fas ${getActivityIcon(activity.type)}"></i>
+                    </div>
+
+                    <div class="recent-activity-info">
+                        <h4>${activity.title}</h4>
+
+                        <p>${activity.description}</p>
+
+                        <small>${activity.date} · ${activity.time}</small>
+                    </div>
+
+                </div>
+
+                <div class="recent-activity-right">
+
+                    <span class="recent-activity-status ${statusClass}">
+                        ${statusName}
+                    </span>
+
+                    <strong class="recent-activity-amount ${amountClass}">
+                        ${formatActivityAmount(activity)}
+                    </strong>
+
+                </div>
+            `;
+
+            activityList.appendChild(item);
+
+        });
+
+    }
+
+
+    // Add a new activity to the top
+    function addRecentActivity(newActivity) {
+
+        recentActivities.unshift(newActivity);
+
+        // Keep only the six newest activities
+        recentActivities = recentActivities.slice(0, 6);
+
+        renderRecentActivities();
+
+    }
+
+
+    // Go to Transaction History
+    (function () {
+
+    const recentActivityHistoryLink = document.getElementById(
+        "goToTransactionHistory"
+    );
+
+    if (recentActivityHistoryLink) {
+
+        recentActivityHistoryLink.addEventListener("click", function(event) {
+
+            event.preventDefault();
+
+            showPage("transactions");
+
+        });
+
+    }
+
+})();
+
+    // Initial display
+    renderRecentActivities();
+
+
+    // Expose function for other dashboard scripts
+    window.addCoNNexRecentActivity = addRecentActivity;
+
+})();
+
+
+
+
+
+
+
+
 
 
 
